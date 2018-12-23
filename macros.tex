@@ -1,0 +1,105 @@
+\long\def\ignore#1{\relax}
+
+\newcommand{\HREF}[2]{{#2}\footnote{\url{#1}}}
+\newcommand{\EMAIL}[1]{\href{mailto:#1}{\texttt{#1}}}
+\newcommand{\PATH}[1]{\texttt{#1}}
+
+% editorial stuff
+%% \newcommand{\ednote}[2]{\footnote{\textbf{#1}: #2}}
+\newcommand{\ednote}[2]{\marginpar{\parbox{2.3cm}{\flushleft \tiny\textbf{#1}: #2}}}
+\newcommand{\ALF}[1]{\ednote{A}{{\tiny #1}}}
+\newcommand{\DAVIDE}[1]{\ednote{D}{{\tiny #1}}}
+\newcommand{\ROBERTO}[1]{\ednote{R}{{\tiny #1}}}
+\newcommand{\TODO}[1]{\ednote{T}{{\tiny #1}}}
+\newcommand{\ZACK}[1]{\ednote{Z}{{\tiny #1}}}
+
+\newcommand{\MANCOOSI}{\textsc{Mancoosi}}
+%\newcommand{\FOSS}{FLOSS}
+\newcommand{\SPEC}{\texttt{spec}}
+%\newcommand{\SHSNIPPET}[1]{%\VerbatimInput[frame=lines,xleftmargin=2mm,xrightmargin=2mm,fontsize=\scriptsize]{#1}}
+\newcommand{\CIRCREF}[1]{\text{\textcircled{\raisebox{-0.8pt}{#1}}}}
+\newcommand{\metamodel}[1]{{\mbox{\small \texttt{#1}}\xspace}}
+
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definition}
+
+\newcommand{\MAINTSCRIPT}[1]{\texttt{#1}}
+\newcommand{\PRERM}{\MAINTSCRIPT{prerm}}
+\newcommand{\PREINST}{\MAINTSCRIPT{preinst}}
+\newcommand{\POSTINST}{\MAINTSCRIPT{postinst}}
+\newcommand{\POSTRM}{\MAINTSCRIPT{postrm}}
+\newcommand{\CONFIG}{\MAINTSCRIPT{config}}
+\newcommand{\code}[1]{{\small \texttt{#1}}}
+
+\newcommand{\logsize}{\footnotesize}
+\newcommand{\logwidth}{0.95\columnwidth}
+\newcommand {\MyNote}[1]{{\bf{$<$ ...#1... $>$}}}
+
+\newcommand {\name}{\textsc{Evoss}}
+
+% partial maps
+\newcommand{\pto}{\rightarrowtail}
+% domain of a partial map
+\newcommand{\pmapincluded}{\subseteq}
+% typed graphs: underlying graph
+\newcommand{\tgr}[1]{\ensuremath{|{#1}|}}
+% typed graphs: underlying morphism
+\newcommand{\tmap}[1]{\ensuremath{\tau_{{#1}}}}
+% category of T-typed graphs with partial morphisms
+\newcommand{\PTyped}[1]{\ensuremath{{#1}\mbox{-}\mathbf{PGraph}}}
+% domain of a partial map
+\newcommand{\dom}[1]{\ensuremath{\mathit{dom}(#1)}}
+
+\def \mathrule #1#2#3{\begin{array}{l}%
+    {\mbox{\scriptsize ({\sc #1})} }%
+    \\ \irule{#2}{#3}%
+\end{array}}
+\newcommand{\irule}[2]{\frac{\textstyle\rule[-1.3ex]{0cm}{3ex}#1}%
+{\textstyle\rule[-.5ex]{0cm}{3ex}#2}}
+
+\def \mathaxiom #1#2{\begin{array}{l}%
+    {\mbox{\scriptsize ({\sc #1})} }%
+    \\ \iaxiom{#2}%
+\end{array}}
+\newcommand{\iaxiom}[1]{\textstyle\rule[-1.3ex]{0cm}{3ex}#1}
+
+\def \mathruleside #1#2#3#4{\begin{array}{l}%
+    {\mbox{\scriptsize ({\sc #1})} }%
+    \\\irule{#2}{#3} \;\;\scriptstyle{#4}%
+\end{array}}
+
+%\diagramstyle[labelstyle=\scriptstyle]
+
+% BEGIN: macros for proof-reading
+\usepackage[normalem]{ulem} % for \sout
+\usepackage{xcolor}
+\newcommand{\ra}{$\rightarrow$}
+\newcommand{\ugh}[1]{\textcolor{red}{\uwave{#1}}} % please rephrase
+\newcommand{\ins}[1]{\textcolor{blue}{\uline{#1}}} % please insert
+\newcommand{\del}[1]{\textcolor{red}{\sout{#1}}} % please delete
+\newcommand{\chg}[2]{\textcolor{red}{\sout{#1}}{\ra}\textcolor{blue}{\uline{#2}}} % please change
+
+% Put edit comments in a really ugly standout display
+\usepackage{ifthen}
+\usepackage{amssymb}
+\newboolean{showcomments}
+\setboolean{showcomments}{true} % toggle to show or hide comments
+\ifthenelse{\boolean{showcomments}}
+  {\newcommand{\nb}[2]{
+    \fcolorbox{gray}{yellow}{\bfseries\sffamily\scriptsize#1}
+    {\sf\small$\blacktriangleright$\textit{#2}$\blacktriangleleft$}
+   }
+   \newcommand{\version}{\emph{\scriptsize$-$working$-$}}
+  }
+  {\newcommand{\nb}[2]{}
+   \newcommand{\version}{}
+  }
+	
+\newcommand {\approach}[1]{{\sc Evoss}}
+
+\newcommand\erik[1]{\nb{Erik}{#1}}
+\newcommand\rogart[1]{\nb{Rogart}{#1}}
+\newcommand\patrizio[1]{\nb{Patrizio}{#1}}
+
+\newcommand\todo[1]{\nb{Todo}{#1}}
+% END: macros for proof-reading

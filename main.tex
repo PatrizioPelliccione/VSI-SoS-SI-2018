@@ -1,0 +1,59 @@
+\documentclass[preprint]{elsarticle}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{AMMALanguages}
+\usepackage[colorlinks]{hyperref}
+\usepackage{multicol}
+\input{macros}
+
+% UNCOMMENT IN CASE OF EMERGENCY
+% \usepackage[textwidth=384pt,textheight=562pt]{geometry}
+\usepackage[textwidth=384pt]{geometry}
+
+\journal{Science of Computer Programming}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Beyond Connected Cars: a System of Systems perspective\tnoteref{NGEAiack}
+}
+\tnotetext[NGEAiack]{Thiswork was partially supported by the Next Generation Electrical
+Architecture (NGEA) and NGEA step2 projects VINNOVA FFI.}
+
+\author[uda,gu]{Patrizio Pelliccione}
+\author[gu]{Erik Knauss}
+\author[ber]{Rogart Heldal}
+
+
+\address[uda]{Universit\`a degli Studi dell'Aquila,
+  Dipartimento di Informatica,\\
+  {\tt patrizio.pelliccione@univaq.it}}
+\address[gu]{Chalmers|Gothenburg University
+  Gothenburg, Sweden\\
+  {\tt \{erik.knauss,patrizio.pelliccione\}@gu.se}}
+\address[ber]{Bergen University
+  Bergen, Norway\\
+  {\tt rogar...@...} } 
+
+\input{abstract}
+\end{frontmatter}
+
+\todo{The structure can be:\\
+1. Introduction\\
+2. SoS in the automotive domain: SOTA  and RW (might be from Billy). We can have also a figure from a blind car to a car that is connected to the world, with in the middle a car with sensors.\\
+3. Architecture framework of Volvo cars\\
+4. SoS viewpoint\\
+5. Demonstrator of Veoneer (demonstrator of what? Can we sell it as demonstrator of the viewpoint? Otherwise, what do we sell in the paper?)\\
+6. Conclusions and future works
+}
+
+
+%\input{introduction}
+%\input{conclusion}
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{sos}
+
+\end{document}

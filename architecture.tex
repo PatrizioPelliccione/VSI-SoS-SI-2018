@@ -1,0 +1,29 @@
+\section{Electrical and software architecture}\label{sec:architecture}
+
+%\tony{Should this not come after the SoS section and be more about the Car's SoS interfaces, that is for example about what the car is allowed to share with and trust from other systems and perhaps something about how this can be done, or else maybe we should skip this section}
+
+The increasing complexity of modern cars is asking for architecture descriptions able to provide the instruments to manage the development, which involves various actors of the automotive ecosystem. Proper architecture descriptions permit engineers to compare and relate different products across different vehicle programs, development units, and organizations. 
+
+In the automotive domain, a well-defined architecture facilitates and enables agility, increase flexibility and innovation, while reducing development time and risks. However, as testified by some studies~\cite{Models2016,WICSA2015,JSA2017},
+often in practice there is a discrepancy between the {\em as-intended architecture} - the architecture that captures the design decisions made
+prior to the system's construction - and the {\em as-implemented 
+architecture} - the architecture that describes how
+the system has been built. This causes what is called architecture degradation. The consequence is that the architecture description partially loses its benefits and, also, reuse among different programs in the product line can be also compromised. 
+
+%\subsection{Importance of having an architecture description}
+
+%\subsection{Architecture framework of Volvo Cars}
+
+%\patrizio{use as base the journal paper (we are now managing the minor revision)}
+
+We are currently building an architecture framework for Volvo Cars able to cope with the complexity and needs of present and future vehicles~\cite{JSA2017}. \patrizio{Change. Say that we made a preliminary study, then volvo cars cretaed an internal project, VIAF for creating the architecture framework.} The framework is based on the conceptual foundations provided by the ISO/IEC/IEEE 42010:2011
+standard~\cite{42010} and currently focuses on three new viewpoints that need to be taken
+into account for future architectural decisions: Continuous Integration and Deployment,
+Ecosystem and Transparency, and the car as a constituent of a System of Systems.\patrizio{check what can we say about the focus}
+According to the standard, an architecture framework is a prefabricated knowledge structure, identified by architecture viewpoints, used to organize an architecture
+description into architecture views~\cite{42010}. An architecture viewpoint encapsulates notations, conventions, methods, and techniques to be used according to specific model kinds that frame particular concerns and that are conceived for specific system
+stakeholders. \patrizio{might we say that it is build on top of Systemweaver?}
+
+We believe that an architecture framework and its multiple viewpoints, is the right instrument to manage the increasing complexity of modern vehicles. In fact, it permits ensuring that descriptions of vehicle architectures can be compared and related across different vehicle programs, development units, and organizations, thus increasing flexibility and innovation, while reducing development time and risks. 
+
+In this paper we will focus on the viewpoint that provide the description of cars as a constituent of a System of Systems.

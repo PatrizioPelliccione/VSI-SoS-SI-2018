@@ -1,0 +1,58 @@
+\section{State of the art in Systems of Systems in the automotive domain}\label{sec:sota}
+
+
+
+
+The U.S. Department of Defense categorizes SoSs  in four categories, according to based the degree of managerial control. This determines how adaptable and cooperative each constituent system will be with respect to requirements, interfaces, data formats, and technologies of the SoS. The categories are:
+
+\begin{itemize}
+\item Virtual - these SoSs lack a central management authority and agreed objective.  
+\item Collaborative - constituents interact more or less voluntarily to fulfill an agreed objective;  
+\item Acknowledged - these SoSs have recognized objectives, a designated manager, and resources for the SoS. Constituents retain their independent ownership, objectives, funding, and development and sustainment approaches. Changes in the constituents are agreed based on collaboration with the entire SoS. 
+\item Directed - the integrated SoS is built and centrally managed to fulfill an agreed objective.  It is centrally managed to continue to fulfill those purposes as well as any new ones the system owners might wish to address. Constituents maintain an ability to operate independently, but their normal operational mode is subordinated to the central managed objective.
+\end{itemize}
+
+The categories ``Virtual", ``Collaborative", and ``Directed" are originally defined in~\cite{MeaningOfOf}, while the ``Acknowledged" type has been proposed in~\cite{maier1996sos}. As mentioned before the categorization is required in order to understand how to build a SoS and to guide the selection of architecting principles~\cite{Dahmann08}.
+
+System-of-Systems Engineering (SoSE)~\cite{Dahmann08} is an emerging discipline of the last years that addresses the development, operation and maintenance of SoSs. SoSE is a specialization of systems engineering and must balance SoS needs with individual system needs. The community around SoSE is active~\cite{Dahmann08}\footnote{See, for example, the IEEE Conferences on Systems Engineering (\url{http://www.ieeesyscon.org}), SoSE (\url{http://www.sose2013.org}), and INCOSE (\url{http://www.incose.org}), as well as the IEEE Systems Engineering Journal and the Journal of System of Systems Engineering.}. 
+Moreover, the European Commission has contributed to the development of the field by supporting several projects~\cite{Ukil2011}\footnote{Examples of projects are:  COMPASS - \url{http://www.compass-research.eu}, 
+DANSE - \url{https://www.danse-ip.eu}, 
+T-AREA-SoS - \url{https://www.tareasos.eu}, 
+ROAD2SOS - \url{http://www.road2sos-project.eu/cms/front_content.php}, 
+CPSOS - \url{http://www.cpsos.eu},
+AMADEOS - \url{http://amadeos-project.eu}, 
+LOCAL4GLOBAL - \url{http://local4global-fp7.eu}, and 
+DYMASOS - \url{http://www.dymasos.eu}}.  	
+
+To mention some examples of EU projects, COMPASS and DANSE focus on model-based methods for modeling the architecture and functionality of SoSs, T-AREA-SoS is an agenda-setting project on transatlantic cooperation, ROAD2SOS and CPSOS aim at defining a roadmap on research and innovation in the field, AMADEOS aims at defining an architecture for evolutionary open SoS, LOCAL4GLOBAL aims at operating on constituents to optimize globally the SoS, DYMASOS aims at dynamically managing physically coupled SoS. 
+Nevertheless, although lively, SoSE is a young discipline, and ``general lessons and patterns that cut across applications remain to be learned" as stated in~\cite{Dahmann08}, which provides a structured view of the state of the art in model-based techniques in SoS engineering, and identifies challenges for research in this field. 
+
+Within the automotive domain there are few examples of systems of systems, as summarized below:
+
+\begin{itemize}
+\item Embedded Automotive Systems - Car as a system of system, i.e. cars as a collection of independent embedded systems on wheels~\cite{Samad2011}. This is investigated within the EU Verdi project - \url{http://www.verdi-fp7.eu}.
+\item Intelligent Transport Systems (ITS) - Example are:
+		\begin{itemize}
+		\item Transport integrated platform to manage different kinds of sub systems (each module of the platform) and different kind of entities, like electronic devices, DG vehicles, and even drivers~\cite{Benza2012}.
+		\item Framework for Future Integrated Transport System Architecture - DANSE EU project - \url{https://www.danse-ip.eu}.
+		\end{itemize}
+\item Vehicles as constituents of a system of systems ? Focus on the vehicles and on its architecture while the vehicle is connected with other vehicles, the road, clouds, pedestrians, etc. to cooperate in a system of systems fashion. There is not much work on this aspect and this is the main contribution of this paper.
+\end{itemize}
+
+In traditional vehicles, the car uses data locally stored in the vehicle and the communication
+based on signals between the different ECU (Electronic Control Units)
+of the car. In autonomous vehicles, the control can rely on aggregated data coming
+from multiple sensors but also from the infrastructure outside the vehicle such as
+the cloud. The communication rather than being signal-based within the vehicle it is
+service/IP based with the outside world. Sharing and controlling sensitive information
+could be of crucial importance in dangerous situations. For example, recently
+Volvo Cars have developed a mechanism to inform road users and road maintenance
+of slippery roads~\cite{Pelliccione2017_SoS}. When a car detects slippery conditions on a road, it sends the
+information to the Volvo Cloud. This information can then be used to predict the
+road condition for later times~\cite{Panahandeh2017}. When another car is approaching the slippery
+part of the road Volvo Cloud notifies the approaching vehicle that will automatically
+reduce its speed.
+
+
+
+

@@ -1,0 +1,393 @@
+\section{System of Systems viewpoint}\label{sec:SoS}
+
+The structure of this section is based on the template called Architecture Viewpoint Template for specifying architecture viewpoints in accordance with ISO/IEC/IEEE 42010:2011, Systems and software engineering - Architecture description\footnote{The template is called Architecture Viewpoint Template, which is released under copyright 
+\textcircled{c} 2012-2014
+by Rich Hilliard. The template is licensed under a Creative Commons Attribution 3.0 Unported License.
+The terms of use are here: \url{http://creativecommons.org/licenses/by/3.0/}.}.
+
+\subsection{Scenarios}\label{sec:scenarios}
+%\avenir{I could add a description of one of the use cases that we implemented, either police take-over or crash notification, if you think that it would add some value. Or maybe it is sufficient with the two use cases that are already described?}
+
+%\anders{Good scenarios. I was not actively involved in the scenarios part, but as I remember from reviewing the report there was a number of them. Maybe we need to try to decide which to include? Reading the paper I guess it's good if they both match the described challenges and whats following, so maybe the scenario choices need to be adopted to that?}
+
+In this section we describe some motivating scenarios that have been used to identify the concerns. Please refer to~\cite{JSA2017} for further scenarios.
+
+%\patrizio{I would like to start from high-level and end-user scenarios like "ice on the street? and then go down into scenarios that are specific for the architecture, as done in the Journal paper.}
+%\tony{I have listed the scenarios in increasing order of complexity and in the time order that I think that they can be introduced.}
+
+\subsubsection{Parking Place Search}
+%\tony{I propose the following parking place find-reserve scenario followed by a more general discussion}
+
+There are several quite simple SoS services that can benefit from being implemented and coordinated by a central server in the cloud. The following parking place finder and reservation service is an example of such a service. A car that can help finding free parking spaces, using equipped camera or radar for example, can provide extra benefits to the service. Alternatively, most can be done just via smart-phone app integration.
+
+ A car driver wants to find a free parking space in the current location area. To do this the driver enables the service and information about the car's location is then sent to and used by a server to find free parking slots in the closest surroundings of a given location. When the driver has chosen a proposed parking space, it is reserved for a short time such that the driver can go there and register to use the parking slot (or else decide to let it free and continue searching). The server can then automatically charge the users according to the time for which the parking slots were used. % and then when leaving the amount of time used it can be registered and used for charging.
+ 
+From the individual car as a constituent of an SoS viewpoint the above example contains two to three main systems or stakeholders. These are: (i) the car-driver, (ii) the parking space resource manager and (iii) potentially a separate charging server. Besides these main systems, there is an obvious relation and dependency to other cars in the location area. In some sense, they are part of the same SoS but they can also be seen as being constituent systems in other SoS of the same type. In either of these cases there is a dependency among the cars that the coordinating parking slot resource allocator must be able to handle. Thus, it seems to be natural to view the SoS as a system that resolves parking problems in a location area for all the cars in the area that have the service enabled at a given moment in time.
+
+\subsubsection{Ice on The Road}
+%\tony{I propose the following "ice on the road" scenario followed by a more general discussion}
+%\tobias{Have you seen the FFI-project Road Status Information, similar to what you describe below. Should we refer to that project?}
+%\tony{I have heard something but you probably know more so please add, refer to or change the text that I wrote below if you think there are interesting things that should be mentioned.}
+%\anders{I found this on the web that seems to related to the FFI project, can maybe be used as references?:
+%\url{http://sicop.transportation.org/Documents/2015\%20PIARC\%20Workshop/pdf_7_Andreas\%20Ljungberg.pdf}
+%\url{http://www.roadstatus.info}}
+Cars, which are equipped with sufficiently confident slippery road analysis systems, can be used to detect and report to a central server about icy and other slippery road conditions along a road segment of a measured length. The server makes an analysis of incoming reports from more that one car. Then, when sufficient information have been gathered, the server can warn cars in the area about those road segments with various degrees of confidence or slippery level. How to set the required confidence level and then remove or reduce severity levels of warnings are issues that will take some time to learn about. The server may also evaluate the confidence and trust of the individual reporting cars. Cars that contribute are supposed to get some benefits from the service provider, for example get the service for free.
+
+\subsubsection{Vehicle Platooning}
+
+%\carl{Here is a text on platooning, and a specific challenge of coordinated emergency braking}
+A scenario of system of systems in cooperative future transportation systems is Vehicle Platooning (or road trains). Platooning can be seen as a collection of vehicles that cooperate with each other to reach some common goal, such as travelling to a certain common destination. The platoon is led and coordinated by a leading vehicle, manually or automatically driven. The following vehicles in the platoon follow the leading vehicle. Longitudinal and lateral control can be automated in the following vehicles. Some manoeuvres, such as driving with short inter-vehicle gaps and joining the platoon from the side, may imply that a human driver is not capable enough and, therefore, control and coordination must hence be automated by the platoon. 
+
+Cooperative Adaptive Cruise Control (CACC) is similar to platooning, but may have less coordination between vehicles and also less degree of automation, e.g. it may lack lateral automation. A brief overview of vehicle platooning systems is given in~\cite{bergenhem2012}.
+
+A challenge is coordination in a situation where a vehicle in the platoon performs an emergency brake. The overall motivation is to avoid collisions within the platoon while still performing needed speed changes (acceleration and braking) as efficiently as possible. 
+
+A dedicated emergency braking protocol aims to improve the outcome in an emergency brake scenario and safely enable smaller inter-vehicle gaps. Using only local sensors with no V2V-communication to detect/signal e-brake leads to lower brake capability. Even with standard CAM/DENM~\cite{EN3026372,EN3026373} the performance is not as good as it could be. A platoon braking scenario is described in~\cite{bergenhem2015}. Here two options are tested: Braking based on CAM/DENM, and braking based on an improved protocol. It is shown in the paper that CAM/DENM has lower performance since it lacks coordination among vehicles and lacks data that are important for braking. %such as ?
+
+%\subsection{Cooperative Adaptive Cruise Control (CACC)}
+%\patrizio{da Billy}
+%This scenario extends the concept of Adaptive Cruise Control (ACC). In brief, ACC
+%uses the car’s equipment and adjusts the vehicle’s speed based on the behavior of the
+%vehicle ahead. What is kept constant, is the desired distance between the vehicles
+%which is set by the driver. Nevertheless, the equipment of vehicle is not capable of
+%identifying a change in the behavior of the vehicle in front instantly but some delay
+%is introduced. In highway, high speed motoring this can cause several problems like
+%traffic jams (in the best case) or head-tail collisions (in the worst case). CACC uses
+%information of the vehicle in front which can be used to predict the behavior of the
+%vehicle e.g. apply brakes will result to speed reduction. The aggregation of all the
+%information can be known to the vehicle in the back before their effect gets identified
+%by it. This upfront knowledge will result to better actions of the vehicle at the back
+%since it can ``foresee" the behavior of the vehicle in front and act accordingly.
+
+\subsubsection{Cooperative Collision Avoidance}
+%\patrizio{add text}
+%\tony{I make a try, see the text below but if someone else have other things in mind please change or add.}
+%Cooperation and sharing of information directly or via more central cloud services can help to adapt speeds, safety distances (time ahead) and route selection strategies to limit the need for rapid speed changes for example due to upcoming traffic jams, road repair works, hefty rain, slippery road conditions or accidents. In case that a potential collision risk has been detected, dedicated avoidance maneuver guiding messages and protocols could be developed and used. For example telling opposing vehicles about the own turning direction or asking an approaching vehicle that it is driving in the same lane or direction to increase rather than decrease its speed to limit or avoid a potential upcoming collision from behind. Protocols that support coordinated lane change maneuvers is also foreseeable. Most cooperative actions is in need of standardization which means that its development will take time. Some of this standardization work related to cooperative awareness has been done by ETSI, ~\cite{EN3026373}.
+%\tony{Does anyone have some more reference to ongoing research or standardization efforts that support the above reasoning?}
+%\anders{There seems to be activities also in 3GPP, se for example 3GPP TR 22.886 V15.0.0 \url{http://www.3gpp.org/ftp//Specs/archive/22_series/22.886/22886-f00.zip}. I still need to read it, but guess it relates to ETSI specs also}
+%\tobias{I used Tony's text, added and did some changes. What do you think?}\tony{I just took away some about V2V technicalities}
+Cooperation and sharing of information in traffic can help to avoid accidents by supporting driver with information, warnings and even intervention when necessary. Preferred use-cases are to avoid getting in critical situations by adapting speeds, safety distances, or route selection strategies. Causes for many critical situations are described by the ITS-G5 standard from ETSI ~\cite{EN3026373}. Causes are, for example, slow vehicles, upcoming traffic jams, road repair works, hefty rain, slippery road conditions, or accidents. Other use-cases in critical situations, which require low latency, are described by the IEEE WAVE standard~\cite{4939288} like Intersection Movement Assist, Left Turn Assist, Forward Collision Warning, Electronic Emergency Brake Lights, Lane Change Warning, and Control Loss warning. 
+
+There could be also new use-cases developed and used for further reducing collision risks; this can be achieved through new communication messages and protocols. 
+Potential solutions to limit or avoid a potential upcoming collision from behind might lead to
+%Some examples could be direction to 
+increase, rather than decrease, the vehicle speed.
+
+Protocols that support coordinated lane change maneuvers are also foreseeable. It can also be imagined that sensors from vehicles could communicate trajectories of vulnerable road users to other vehicles 
+that might incur collisions.
+%which are on collision course, even if they are not involved, so 
+This is called collaborative safety. More cooperative actions require %is in need of
+standardization and market penetration; this implies that it will take time to concretely see the benefits of these innovative functionalities. % which means that its benefits will take time.
+
+
+
+\subsubsection{SoS challenging scenario from~\cite{JSA2017}}
+
+This scenario is different from the previous ones since it is more detailed and it is looking into how to engineer the car in order to be part of an SoS. In this sense, this scenario can be considered as investigating how the other scenarios can be realized. Additional SoS scenarios that we will probably see in the near future include, e.g., (i) improving traffic flow management by optimizing traffic lights and speed limits and by offering rerouting
+suggestions based on real-time traffic jam alerts, (ii) changing the colour of street-lights to signal slippery
+road-sections or dangerous road conditions, when this is detected, e.g., by a connected car.
+In addition to that we mention a scenario foreseen by Klas Bendrik, Vice President and Group CIO at Volvo Cars Group ({\footnotesize \url{http://goo.gl/LuOHkz}}): ``Imagine a world where road status data collected
+by cars is shared with other road users and with local authorities through a connected car cloud such as the
+Volvo Cloud: A world where the benefits of anonymized data-sharing support convenience and life-saving services
+while helping to contribute to a better society. Volvo Cars is working on realising such a future scenario". 
+
+
+Coming back to the low level scenario proposed in~\cite{JSA2017}, first of all there is the need of having reliable communication. To have the car as a constituent of a System of Systems (SoS), the car needs to be connected to other cars, infrastructure, cloud, and any other kind of constituent system of the SoS. Most probably the car will be connected through heterogeneous communication means and with various degrees of quality of service.
+
+\begin{quote}
+{User Story:} 
+\emph{``As an architect I need to engineer the car so that it will support heterogeneous communication means with various quality of service (QoS).The QoS of the different communication means should be clearly identified
+so that it will be possible to develop end-to-end functionalities that go beyond the boundaries of the car.''} % the why
+\end{quote}
+
+Then, there is the need of guaranteeing that communication from and to the car is properly understood. It is not enough to have proper communication means; the exchanged information should be properly understood by all involved parts.
+
+\begin{quote}
+{User Story:} 
+\emph{``As an architect I need to ensure a high degree of interoperability between the car and other constituent systems of the SoS. End-to-end functionalities that go beyond the boundaries of the car might need to be built under the assumption that exchanged information is properly understood and required actions are taken by the receiving system.''} % the why
+\end{quote}
+
+Third, vehicles should have a degree of autonomy and readiness to be at the service of the SoS. Often SoS scenarios require a degree of autonomy of the vehicle. Moreover, often a constituent system has to temporarily sacrifice its own goal in order to take actions needed to fulfil the goal of the SoS.
+
+\begin{quote}
+{User Story:} 
+\emph{``As an architect I need to manage the transition towards autonomous behaviours of the car that are needed to achieve the goal of the SoS. % the why
+The car should be engineered so to, often immediately, temporarily stop what is currently doing and 
+perform the actions required by the SoS. The right tradeoff between independence of the vehicle (from the SoS) and service offered to the SoS needs to be found.''}
+\end{quote}
+
+Vehicles should be also ready to deal with uncertainty and functional safety. Vehicles are starting receiving a huge amount of information from the environment as communication coming from other vehicles, pedestrians, road signals, and the city in general. This information might be precious for supporting new safety behaviours~\cite{VCC}. %\footnote{Example: \url{https://goo.gl/mIWWS3}.}.  %\url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/159478/volvo-cars-connected-car-program-delivers-pioneering-vision-of-safety-and-convenience}}. 
+However, this information is often unreliable and subject to different dimensions of uncertainty, like presence of other constituent systems, communication means, etc.
+
+\begin{quote}
+{User Story:} 
+\emph{``As an architect I would like to support innovative and very promising safety scenarios % the why
+that can involve cyclists, pedestrians, etc. However, this would imply that the way functional safety is ensured should change since the SoS is open (constituent systems might join or leave the SoS at any moment) and we cannot rely 100\% on information sent by uncontrollable and independent constituent systems.''}
+\end{quote}
+
+
+Another important aspect is to deal with cyber security and privacy. Once the car is connected it is exposed to attacks as any other computer or device that is connected to Internet. The effects might be tragic.
+
+\begin{quote}
+{User Story:} 
+\emph{``As an architect I need to protect the car from attacks to avoid dangerous or catastrophic scenarios and to guarantee the privacy of user data.''} % the why
+\end{quote}
+
+
+\subsubsection{Dependencies among SoS Constituents}
+There are several similar use-cases where cars need to report individually relevant information to a server, which can then give useful collective information back to cars. In some cases, the server might in turn cooperate with other servers. This is, for instance, the case of road or weather conditions alarms. Exploiting information coming from individual vehicles, a server might also help coordinate the timing of light controlled road crossings or give advice about alternative less congested routes.
+
+The car-driver equipages in all these examples can be seen as clients or servers. When an SoS is built in this way, the servers act as mediators that decouple their clients from direct involvement and dependencies on each other.
+
+However, there are also SoS configurations where several car-driver equipages may interact more directly with each other and, thus, act more as peers. Thus, in these cases the SoS does not include a mediator. An example of this is a SoS supporting services of cooperative future transportation system, where each car is supposed to periodically provide information about its location, heading, speed, and acceleration. This information might be exploited by other cars, for example, in a CACC service to adapt their speed and safety distances as desired. In SoS implementing services of cooperative future transportation system, this kind of basic information is supposed to be sent by all cars and can then be used for many different kinds of services. Other services may require some kind of coordination agreement among two or more cars, for example, to coordinate whether they can pass a crossing in an orderly and safe manner.
+
+The level of indirectness that a mediator enables simplifies and helps to solve trust and security issues but can also increase the communication load and information latency and may, thus, make it more difficult to fulfil the real-time requirements of the service.
+
+To summarise, to realize the different facets of the scenario described above, it is necessary that each SoS constituent fulfils its QoS requirements and, moreover, it needs to realize the functionalities that are required by the particular SoS in order to achieve the SoS goals.
+
+\subsection{Concerns and stakeholders}
+
+In~\cite{JSA2017} we have identified through dedicated meetings with software architects of Volvo Cars the main stakeholders of the architecture framework. They fall into five main groups and they are summarized in Table~\ref{tab:stakeholders}: 
+
+\begin{itemize}
+\item \emph{End-users} of the electrical system, like drivers and passengers.
+\item \emph{Customer} stakeholders, such as paying customers of products and services that depend on the electrical system (i.e. the car) and product planners, who acquire the electrical system as part of the overall product.
+\item \emph{Management} with responsibility for scheduling, long term quality, groups, departments, and budget.
+\item \emph{Developers of the electrical system}  include engineers throughout the value chain that create the electrical system, its architecture, and the necessary tools  that test and integrate the various components. 
+\item \emph{Maintainers of the electrical system} who interact with the electrical system throughout its lifetime. 
+\end{itemize}
+
+\begin{table}[htb!]
+\scriptsize
+\caption{Overview of Stakeholders}%\patrizio{From Rev3: add comments to roles? Synonyms only for functional developers.}}
+\label{tab:stakeholders}
+\begin{tabular}{rv{0.2\textwidth}v{0.26\textwidth}v{0.42\textwidth}}
+\toprule
+& \textbf{Stakeholder} &	\textbf{Group} & \textbf{Comment}\tabularnewline
+\midrule
+& Passengers & end-user	\tabularnewline
+\hline
+& Drivers & end-user		\tabularnewline
+\hline
+& Customers & customer & Purchaser of a car or related service  \tabularnewline
+\hline
+& Product planner & customer & Acquirer of electrical system		\tabularnewline
+\hline
+& Purchaser & customer & Purchasers of electrical system		\tabularnewline
+\hline
+& Line managers & management & Has scheduling responsibility, long term quality responsibility, includes group, department	\tabularnewline
+\hline
+& Project managers & management & Owns budget for development	\tabularnewline
+\hline
+& System architects & developers of electrical system & 	\tabularnewline
+\hline
+& Functional developers & developers of electrical system & Owns functional and non-functional aspects (Synonyms: function owner; function realizer; function developer, function realizer, system developer)\tabularnewline
+\hline
+& Component developers & developers of electrical system		\tabularnewline
+\hline
+& SW supplier (internal/external) & developers of electrical system	& Can be internal or external from the perspective of the OEM.	\tabularnewline
+\hline
+& HW supplier (internal/external) & developers of electrical system	& Can be internal or external from the perspective of the OEM.	\tabularnewline
+\hline
+& Testers & developers of electrical system		\tabularnewline
+\hline
+& Attribute Owners & developers of electrical system & Owns non-functional attributes like performance	\tabularnewline
+\hline
+& Tool Engineers & developers of electrical system & Specifically testing tools, including design tools (e.g. for requirements)	\tabularnewline
+\hline
+& Calibrators & developers of electrical system & \tabularnewline
+\hline
+& Diagnostic method engineers & maintainers of electrical system		\tabularnewline
+\hline
+& Workshop Personnel & maintainers of electrical system		\tabularnewline
+\hline
+& Fault Tracing Specialists & maintainers of electrical system		\tabularnewline
+\hline
+& Technical Specialist &  specialists &	Support developers and maintainers on specific topics \tabularnewline
+\bottomrule
+\hline
+& Safety authorities  &  Standard &	To guarantee compliance to safety regulations \tabularnewline
+\hline
+& Communication authorities  &  Standard &	To guarantee compliance to communication regulations \tabularnewline
+\hline
+& Road authorities  &  Road &	Connection with the road infrastructure \tabularnewline
+\hline
+& Pedestrians, cyclists, powered two wheelers  &  VRU &	Connection with pedestrians, cyclists, and powered two wheelers, and safety guarantees \tabularnewline
+\hline
+& IoT specialists  &  IoT devices &	Connection with smart buildings, smart lampposts, smart parking slots, etc. \tabularnewline
+\hline
+& Other OEM representatives  &  Other OEMs &	Definition and engineering of SoSs and agreement on ownership, management, evolution, etc. \tabularnewline
+\bottomrule
+\end{tabular}
+\end{table}
+
+A further analysis made with architects of Volvo cars, but also with architects and engineers working in suppliers of Volvo cars, we enriched the set of stakeholders by including (i) standard authorities for what concerns both safety and communication means, (ii) road authorities, (iii) Vulnerable Road Users (VRU), e.g. pedestrians, cyclists, and powered two wheelers, (iv) IoT devices, which include devices to connect cars to smart buildings, smart lampposts, smart parking slots, etc. and (v) other OEMs, with the aim of engineering SoS in collaboration.
+
+
+
+
+
+
+
+In~\cite{JSA2017} we identified the following concerns for this viewpoint. For the sake of completeness we report here the concerns and then we focus on the building blocks of the architecture.
+
+\begin{itemize}
+\item Once the car is part of a SoS, how to guarantee functional safety requirements?
+
+\item Once the car is part of a SoS, what are the implication on system design and functional
+distribution for functional safety?
+
+\item Once functional safety requirements involve devices that are outside of the vehicle (other constituent systems of the SoS), how to ensure that these requirements will be
+guaranteed?
+
+\item How the methods and processes for end-to-end function development and continuous
+delivery of software need to evolve to be suitable in a System of Systems setting?
+
+\item How to enable a reliable and efficient communication between the vehicle and heterogeneous entities, like other vehicles, road signals, pedestrians, etc.?
+
+\item How to be sure that the vehicle and other constituent systems of the SoS will be able to exchange information and to use the information that has been exchanged?
+
+\item How to guarantee that the security of the vehicle is preserved once the vehicle becomes
+connected?
+
+\item How to identify the right tradeoff between shared data and users' privacy?
+
+\item How to keep the data shared within the SoS (and possible replication of data) sufficiently updated or synchronized?
+
+\item How to manage the age of available information?
+
+\item Which functions in the car are allowed to make use of data coming from other constituents?
+\end{itemize}
+
+\subsection{Towards the definition of model kinds}
+
+According to the ISO/IEC/IEEE 42010 standard~\cite{42010}, we should identify model kinds, i.e. conventions
+including languages, notations, modeling techniques, analytical methods and other
+operations. In this paper, we contribute towards the definition of model kinds by identifying the 
+main building blocks of cars as constituents of a future transportation system. These building blocks are described in the following subsections.
+
+\subsubsection{Distributed end-to-end functionality} 
+%
+
+In the SoS scenarios described above, functionalities are not only referring to nodes that are within the car but also outside the car, such as cloud services, other vehicles, infrastructures, pedestrians, etc. A car in a System-of-Systems may receive information from sources outside the car itself, e.g., from other vehicles and road signals and road side based sensors. Sensor data may be used even though the cars are not operating cooperatively, i.e., the information are provided by remote sensors. Therefore, distributed end-to-end functionalities involve uncontrollable and unforeseeable actors, like pedestrians, road signals, etc. Functionalities cannot be completely planned at design time since we do not know which nodes and actors will take part of the functionality. In SoS scenarios, more often than not, part of functionalities can only be realized at runtime, since they emerge from the collaboration of the constituent system and are observed at the boundaries of the SoS. It is then important for each single car to have enough information to validate the received data and be able to perform as good sensor fusion as possible as a base for tactical decisions. To this end, sensor data should be accompanied with meta data with information like confidence levels.
+
+%A functionality can be distributed, not only between nodes in vehicles, but also between nodes outside the vehicles such as cloud services, other vehicles and infrastructures, etc. Connected vehicles can benefit a lot from having access to cloud services like cloud computing or information from infrastructures and vehicles aggregated in the cloud. A cloud service, or cloud functionality, refers to a network centric service available via the Internet, which extends an existing function in a vehicle, or enable new functionality enabled by cloud data. Therefore, a cloud function is a function that benefits a car and/or its driver by utilizing cloud services mentioned above. For instance, utilizing external data from the cloud to smooth the speed profile of the vehicle, and consequently reduce the fuel consumption.
+%
+
+%\anders{Not sure what to put in here, but this is some additions based on discussion in my group.} 
+%A car in a System-of-Systems may receive information from sources outside the car itself, e.g., from other vehicles and road signals and road side based sensors. Sensor data may be used even though the cars are not operating cooperatively, i.e., the information are form remote sensors. Important for the single car is that it receives enough information to validate the received data and be able to perform as good sensor fusion as possible as a base for tactical decisions. The sensor data should be accompanied with meta data with information like confidence levels, … 
+
+\subsubsection{Functional safety} 
+%
+
+%\patrizio{Existing functional safety functionalities might be compromised by the fact that cars are connected. This should be managed properly. 
+%New safety functionalities, within connected safety, might be introduced and can be extremely interesting, however there are some issues:\\
+%1. the data coming from external nodes can be (i) unreliable - nodes can appear and disappear, (ii) un-trustable - there can be a malicious attack, (iii) ineffective - there can be no guarantee about performance, reliability, etc.\\
+%2. users might have the false perception and expectation that these safety mechanisms will work as the other mechanisms, and then they might start assuming, wrongly, that no info would means no safety issue, e.g no info about ice on the street means no ice on the street.\\
+%The general question would be: how much of information coming from external nodes might and should be used for safety functionalities?\\
+%There are interesting works that can be mentioned that use design by contract for managing some of the issues mentioned here.}
+
+%\avenir{Here are my thoughts about SoS-safety, including parts of Patrizios outline (solutions not included (yet), but I agree that design by contract seems really interesting. Also perhaps the STAMP method could be of interest)...}
+
+Connecting vehicles into SoS has far-reaching consequences on how to perform risk and safety analysis. In fact, every characteristic that distinguishes an SoS \cite{maier1996sos} has its implications on safety, as will be discussed in the following.
+
+The \emph{managerial and operational independence} of the constituent systems (CS) means that SoS-level safety requirements need to be analyzed in cooperation, and then agreed upon, by the different stakeholders that will be involved in an SoS. Also, the overall safety requirements need to be balanced with respect to the individual safety of the CSs. 
+
+\emph{Evolutionary development} of the CSs, and as a consequence, of the SoS, means that both the safety analysis and the resulting agreements need to be constantly supervised and updated. How such supervision should be done is far from evident and will probably differ among SoS. It could for example be done by a dedicated high-level agent, it could be mediated by a third-party, or it could be done cooperatively by the CSs. The composition of SoS may also evolve over time, further complicating safety analysis. 
+
+\emph{Emergent behavior}, which is the main reason for constructing an SoS, is also one of the main challenges when it comes to analyzing safety. 
+Analyzing safety in scenarios in which there are interactions with external and independent systems is challenging. This is not addressed by the ISO 26262 standard \cite{iso26262}. 
+%While vehicle OEMs have come far when it comes to analyzing the safety of their own products, e.g. formalizing the process into the ISO 26262 standard \cite{iso26262}, the picture is much less clear when interactions between independent systems is to be considered. 
+In fact, a large portion of potential hazards can be attributed to incorrect or unforeseen interactions between systems or system components \cite{rasmussen1997risk, leveson2011stamp}, and, also, there can be limited knowledge and control of external systems. 
+
+\emph{Geographical distribution} means that CSs need to rely on communication links for the correct operation of an SoS. While the correctness of data from the other SoS participants is crucial, CSs should have defense mechanisms for the cases when data is incorrect. Thus, on the vehicle level it is important to handle that data may be e.g.: (i) unreliable - CSs can appear and disappear; (ii) - untrustable - data may be corrupted or even subject to a malicious attack; (iii) - ineffective - guarantees about performance, reliability, etc., may be missing. 
+
+In addition, due to the evolving nature of SoS, together with a potential lack of transparency between OEMs, the SoS design might be only partially known at the time of safety analysis. Also, SoS are typically socio-technical systems with  machines and humans interacting in complex ways. Thus, it is important to take human factors into consideration, not least including the human perception and expectation of how the SoS should operate, and also possibly unsafe human reactions to environmental events. Another trade-off that is important to consider is the balance between increased risk and functional requirements. For example, should a vehicle reduce its speed and lead to an inconvenience for its occupants, only to reduce the risk to other road users? 
+%Another interesting trade-off is between safety and security. Sometimes these issues might correlate and require the same solution, e.g. fallback mechanisms in case of incorrect data, while at other times they might be contradictory, e.g. when balancing communication latency and message encryption. Thus, it is important to consider safety and security in the same analysis, and also to do so early in the SoS development.
+
+%Possible solutions...\patrizio{to be completed}
+
+%\anders{Some short thoughts based on discussion in my group and the view what will be done during the remaining NGEA} 
+%An important subject from functional safety perspective is how to establish the chain of trust in a System of Systems of Cars. How to authenticate that the received data has not been changed? An assumption is to use some type of third party certificates.
+
+%An example is information based on remote sensor data. How to ensure that the received data can be trusted, validate the received data, make sensor fusion with other external and internal sensor sources and base tactical decision on available data?
+
+There is a need for run-time strategies for handling safety levels of services, and the difference between design time assessments and run time assessments. How to handle conflicting data that is usually, at least partly, redundant? An important aspect for the SoS is that sensor data transferred between different nodes in the SoS need to be accompanied with meta data that describe the quality of the data. For example, what is the confidence that there is no other car in a certain distance in front of the car with the sensor? Evolutionary machine learning may play a part as a robust method for the ``sensor fusion" needed to find patterns emerging from a group of connected cars.
+
+
+%Functional safety requirements are expected to apply for functions outside the car, but to be able to handle severity issues in a satisfactory way, one can expect that they not will include operational functions - mainly functions in strategical and tactical planning horizon. However it is important to understand the implication on system design and functional distribution for functional safety. 
+
+%
+%\subsection*{Services} 
+%
+%Services implemented as distributed end-to-end functions will benefit from the possibility to dynamically load software to the on-board electrical architecture. Dynamically loaded software may be executed in one or several physical nodes, and virtual machines may be essential to ensure cyber-security, functional safety and compatibility. Services may also be extended and made version specific with use of data and software in the cloud. 
+%
+\subsubsection{Connectivity and Interoperability}
+% 
+
+%\patrizio{About connectivity we should mention that there will be many different and heterogeneous devices connected through heterogeneous communication means.\\
+%About interoperability we might write something about the different levels of interoperability:
+%Level 1 - Technical interoperability: a communication protocol exists for exchanging data between participating systems. A communication infrastructure is established and the underlying networks and protocols are unambiguously defined.\\
+%Level 2 - Syntactic Interoperability: if two or more constituent systems are able to communicate and exchange data, we consider that they exhibit syntactic interoperability; key enablers are (lower layer) communication protocols, data formats, and application layer protocols (in terms of their signatures -methods and data). Standards play a key role here.\\
+%Level 3 - Semantic interoperability: it is, instead, the ability of two or more systems to properly interpret the exchanged information in order to produce useful results; key enablers in this case are the interaction protocols at application layer, in terms of their behaviour.\\
+%Level 4 - Pragmatic interoperability: it is the ability to ensure that a message sent by a system causes the effect intended by that system; i.e., the intended effect of the message is understood by the collaborating system. This requires that the interoperating systems are aware of the methods and procedures that are employed by the other system and understand the use of data and the context of its application within the other systems. Pragmatic interoperability might be achieved only when systems are both syntactically and semantically interoperable.\\
+%Level 5 - Dynamic interoperability: At this level we consider also a dimension of time: the state of constituent systems will change, and this includes the assumptions and constraints that affect the exchange of data. Dynamic interoperability is the ability of systems to comprehend the state changes that occur in the assumptions and constraints that other systems are making over time.\\
+%Level 6 - Conceptual interoperability: At this level the conceptual models and then the assumptions and constraints of the meaningful abstractions of the reality are aligned. \\
+%This requires having conceptual models (not just text describing the conceptual idea, but a fully specified but implementation independent model) enabling their interpretation and evaluation programmatically or by other engineers.}
+
+Sufficiently dependable connectivity is essential to enable the expected service level in different places in a future transportation system. Making connectivity sufficiently dependable may be possible through the use of several different channels such as through vehicular and cellular networks. However, there still has to be on-board functions that handle graceful degradation of services when connectivity is limited, delayed, or not available at all. Thus, regardless of the availability of the connectivity, the user shall experience a robust behaviour of the functions; this is especially important for safety-related functions. 
+
+Interoperability is the \textit{``ability of two or more (software) systems or components to (i) exchange information and (ii) use the information that has been exchanged"}, according to the definition provided by the ISO/IEC/IEEE 24765:2010 standard on Systems and software engineering - Vocabulary~\cite{STANDARD}. 
+This general definition has been conjugated in many different ways based on the reference application area and on the many different factors and aspects characterizing them. Interoperability involves standards, protocols, and integration and adaptation of interfaces to enable the effective and efficient communication between CS. Interoperability is  multifaceted, as clearly emerge from the INTERO interoperability evaluation framework, which enables the evaluation of products/systems/product lines from the point of view of interoperability and enables the identification of the specific
+interoperability dimensions on which organizations should act in order to improve interoperability~\cite{intero}.
+
+When focusing on future transportation systems, interoperability can be defined as the ability of two or more CS that are part of the SoS to exchange information and to use the information that has been exchanged according to the goal of the SoS. The Levels of Conceptual Interoperability Model (LCIM) interoperability standard~~\cite{Wang2009,Tolk2006} proposes 7 interoperability levels, which are (we skip level 0,
+i.e. no interoperability):
+
+\noindent {\bf Level 1} - Technical interoperability: a communication protocol exists for exchanging data between participating systems. A communication infrastructure is established and the underlying networks and protocols are unambiguously defined.
+
+\noindent {\bf Level 2} - Syntactic Interoperability: if two or more constituent systems are able to communicate and exchange data, we consider that they exhibit syntactic interoperability; key enablers are (lower layer) communication protocols, data formats, and application layer protocols (in terms of their signatures -methods and data). Standards play a key role here.
+
+\noindent {\bf Level 3} - Semantic interoperability: is, instead, the ability of two or more systems to properly interpret the exchanged information in order to produce useful results; key enablers in this case are the interaction protocols at application layer, in terms of their behaviour.
+
+\noindent {\bf Level 4} - Pragmatic interoperability: is the ability to ensure that a message sent by a system causes the effect intended by that system; i.e., the intended effect of the message is understood by the collaborating system. This requires that the interoperating systems are aware of the methods and procedures that are employed by the other systems and understand the use of data and the context of its application within the other systems. Pragmatic interoperability can be achieved only when systems are both syntactically and semantically interoperable.
+
+\noindent {\bf Level 5} - Dynamic interoperability: At this level we consider also a dimension of time: the state of constituent systems will change, and this includes the assumptions and constraints that affect the exchange of data. Dynamic interoperability is the ability of systems to comprehend the state changes that occur in the assumptions and constraints that other systems are making over time.
+
+\noindent {\bf Level 6} - Conceptual interoperability: At this level the conceptual models and then the assumptions and constraints of the meaningful abstractions of reality are aligned.
+This requires having conceptual models (not just text describing the conceptual idea, but a fully specified but implementation independent model) enabling their interpretation and evaluation programmatically or by other engineers
+
+In the context of future transportation systems, unambiguous interpretation of shared data between systems is necessary for interoperation, but it is not sufficient. Despite standards for shared data that provide specification with the objective to enhance the functionality and interoperability, the data encoded using these standards are not necessarily interoperable. For instance, concepts that have the same labels, and somehow even the same meaning, can be used completely differently in different applications. This is for instance the case of the label ``speed" within a car that can have different meanings in different applications or contexts unless the semantics is very clearly defined and acted on.
+%
+
+%\anders{Question: I'm not really familiar with the interoperability notation yet, but trying to sort in out in my mind. On Level 2 it is stated that Standards play a key role, but isn't that the case for more of the levels? I'm just have 2 ETSI Technical Spec ("102 940 Sequrity" and "103 301 Basic Set of Applications") released by the en of last year on my desk, but haven't had time to read them yet. My colleges Rolf and Henrik talks a lot of meta data and claims thats missing if ongoing standard work, but I haven't checked it}
+
+\subsubsection{Security and Privacy}
+
+Connectivity of cars poses new challenges both on security and privacy since cars become exposed, as any other device that is connected to the Internet. Malicious software might take complete control of the car and this opens to many problematic scenarios with potentially dramatic effects.
+Aspects that should be considered span from attacks to take the control of the car to attacks for spying and extracting information, trying to use the car for doing another attack, spoofing attacks, etc.
+Firewalls and DMZs are possible solutions, but there can also be some intrusion detection systems and more advanced solutions that can be distributed in the SoS and exploit the knowledge and expectations of constituent systems to identify and isolate constituent systems that are under attack.
+
+There is an interesting trade-off between safety and security that should be considered. Sometimes these issues might correlate and require the same solution, e.g. fallback mechanisms in case of incorrect data, while in other cases they might be contradictory, e.g. when balancing communication latency and message encryption. Thus, it is important to consider safety and security in the same analysis, and also to do so early in the SoS development.
+
+For what concerns privacy, cars will need to share information
+to enable the scenarios of SoS described in Section~\ref{sec:scenarios}, however, sensitive information should be properly
+protected. %As an additional example we might mention the \rogardt{The application ”Tryg i Bil” is web and mobile solution that show driving behavior and the driving book. It gives full overview over the driving data and where the car is. This is developed in partnership with the insurance company Tryg Forsikring. This is really about privacy}
+The point is to find the right trade-off between data that is shared since it enables many interesting functionalities and data that should be kept private.
+
+%Privacy is, in fact, connected also with functional safety. 
+An important perspective is also understanding how to establish the chain of trust in a future transport system. How to authenticate that the received data has not been changed? An assumption is to use some type of third party certificates.
+
+An example is information based on remote sensor data. How to ensure that the received data can be trusted, validate the received data, make sensor fusion with other external and internal sensor sources and base tactical decision on available data?
+
+%\rogardt{On interesting thing that happen in Norway is that they plan to detect fire in tunnel and avalanches that can affect roads so that they can warn the drivers. This can happen now since sensors have been very cheap and they can use many of them. This might be outside the scope of this paper, but I thought I should bring it up}
+
+\subsection{Correspondence rules}
+
+This viewpoint has correspondences with various other viewpoints. First of all, this viewpoint has correspondence rules with the other SoS viewpoint that focuses on the overall SoS. As anticipated above, the other SoS viewpoint aims at giving an answer to the following question: ``{\em How to engineer the SoS so that the collaboration among various constituent systems will achieve the SoS goals?}. 
+
+Then, this viewpoint has correspondences with the functional safety viewpoint since, on one side, having a vehicle connected might pose new challenges to functional safety. On the other side, it opens new opportunities related to safety that open new promising scenarios that are unthinkable for a disconnected vehicle, such as, the ice on the road, the vehicles platooning, and the cooperative collision avoidance scenarios; described in Section~\ref{sec:scenarios}.
+
+Moreover, having the vehicle connected opens new challenges in terms of privacy and security, as described above. This triggers correspondences with the security and privacy viewpoint.
+
+Finally, this viewpoint has also correspondences with the topology, cost, variability, continuous integration and deployment and ecosystem and transparency.

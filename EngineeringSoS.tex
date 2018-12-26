@@ -1,0 +1,100 @@
+\section{How to engineer an SoS}
+
+Connected vehicles will benefit from Intelligent Transport Systems (ITS), Smart
+Cities, and Internet of Things (IoT). 
+Future transportation systems will be a heterogeneous mix of items with varying connectivity and interoperability. A mix of new technologies and legacy systems will co-exist to realize a variety of scenarios involving not only connected vehicles but also smart roads, pedestrians, cyclists, and so on. In other words, future transportation systems are expected to be system of systems, where each constituent system can act as a standalone system, but where the cooperation among the constituent systems will enable new emerging and promising scenarios. 
+
+
+Connected vehicles  will combine data from inside vehicle
+with external data coming from the environment (other vehicles, the road, signs,
+and the cloud). In such a scenario, different applications will be possible: smart
+traffic control, better platooning coordination, and enhanced safety in general.
+In today's vehicles, the driver plays a fundamental role. Besides controlling
+the vehicle, she/he is also expected to recover the vehicle from failures. With fully
+autonomy (SAE level 5), the driver is no longer in the loop. The vehicle, besides
+controlling the basic driving maneuvers, should handle all possible situations during
+driving. As the driver is not monitoring the vehicle and is not a fallback option
+anymore as in the lower levels of automation, it is expected that nothing goes wrong.
+For the higher levels of automation (i.e., levels 3 - 5), additional players enter the
+ecosystem: companies that focus on communication aspects will play a big role in
+this ecosystem, as communication will be an important basis for highly automated
+driving~\cite{Knauss2017challenges}. Communication allows the vehicles to ensure that they have redundant
+information sources (i.e., several sources of information) to ensure safety, reliability,
+and quality of autonomous vehicles. As can be seen in this example, data plays an
+essential role in autonomous vehicles. Hence, companies that focus on data will be
+additional players in the ecosystem~\cite{Knauss2017challenges}. When it comes to OEMs for highly automated
+driving, we notice that companies need to shift to being software companies
+instead of developing software just as a side product, as already mentioned above.
+
+
+
+\patrizio{proj prop 2015} An open problem of SoSs is how to provide justification of the reliance on emergent properties [3]. Emergent
+properties are the result of synergistic collaboration between constituent systems, and are those properties
+that cannot be expressed at the level of a single constituent system, but require observations of phenomena at the
+SoS boundary [3]. There are two different types of emergence: weak emergence [6], when an emergent property
+can be reduced to its constituents, and strong emergence, when an emergent property cannot be traced to any
+direct cause (a classic example is the consciousness emerging as a property of the brain [3]). Like [7, 3] we
+confine our attention to weak emergence, and hereafter, we use the term emergence to refer to weak emergence.
+Emergence can be either anticipated, meaning that it is defined at design-time, or unanticipated, meaning
+that it is not purposely or consciously designed-in or surprising to the developers and users of the SoS. Consequences
+of the unanticipated emergent behavior may be viewed as negative/harmful, positive/beneficial, or
+neutral/unimportant by stakeholders of the SoS [5]. Existing approaches to design and verify dependable systems1
+work pretty well with closed and unchanging systems. These techniques become inadequate for assessing
+and justifying SoS reliance on emergent properties since SoSs are composed of autonomous constituents
+whose behaviour can neither be predicted nor controlled [9].
+
+System-of-Systems Engineering (SoSE) is an emerging discipline of the last years that addresses the development,
+operation and maintenance of SoSs. SoSE is a specialization of systems engineering and must balance
+SoS needs with individual system needs [5]. The community around SoSE is active2, nevertheless SoSE is a
+young discipline, and general principles and theoretical foundations remain to be discovered. The two
+biggest challenges are related to: (i) Uncertainty about constituents - SoS need to manage unavoidable imprecise
+and uncertain information about constituent systems; (ii) Independence of constituents - constituent systems
+are independent entities for what concern operation, management, and evolution. Each constituent has its own
+objectives, possibly conflicting with objectives of the other constituents or of the SoS. An SoS has a potentially
+limited authority that it exercises on the constituent systems to drive them towards its objectives. In the following
+we overview the three sub-fields related to this project.
+Verification of emergent properties: One of the most frequently used techniques to explore emergence is simulation
+[14]. The work in [15] advocates that different engineering techniques are required at different scales,
+including software engineering and formal methods. Self-adaptive systems [16] are systems that autonomously
+decide how to adapt at runtime to meet environment (context) and user changes and threats. Uncertainty about
+constituents and independence of constituents make most of the techniques proposed for self-adaptive system
+inapplicable for SoSs. Providing guarantees that an SoS will achieve a global goal in predictable and dependable
+ways, through the collaboration of autonomous and independent constituent systems with different (and
+potentially conflicting) local goals remains an open problem [17, 18]. There is the need of evidence on which
+to base reliance on emergent properties and on SoS-level behaviours.
+
+\patrizio{autonomous cars are becoming part of an autonomous system of system. An autonopmous car needs to costantly communicate with other cars and the infrastracture, cia sensors and the cloud. unprecedented complexity will lead to unprecedented cooperation \url{https://www.ibm.com/blogs/internet-of-things/iot-design-for-system-of-systems}. Enginenrign the SoS: coopration bewetween companies, + standards, etc.\\
+Anche: ``An interconnected self-driving car system-of-systems"\\
+Anche: Toyota - Intelligent transport systems: \url{www.toyota-global.com/innovation/smart_mobility_society/intelligent_transport_systems}\\
+Anche the EU project SOCRATES2.0 (System of Coordinated Roadside and Automotive Services for Traffic Efficiency and Safety), partnership of BMW, HERE, and Copenhagen
+}
+
+?	Should the SoS be Virtual, Collaborative, Acknowledged, or Directed, or a mix of them?
+?	Should the collaboration be established for a limited time in response to or to solve specific situations, like hazards in connected safety scenarios?
+?	Should the collaboration be extemporary and spontaneous?
+?	Who is engineering the SoS, one specific OEM, a group of OEMs, road authorities, etc.?
+?	Who is the owner of the SoS?
+?	Who is the manager of the SoS?
+
+
+The
+research significance is many-fold since SoS Engineering is an emerging discipline of the last years and is still in
+his infancy. SoS might be used in several safety-critical application domains, e.g., intelligent transport systems,
+integrated air defense networks, applications in healthcare, emergency response, space exploration, homeland
+security, etc. Consequently, SoS engineering needs to be grounded on a rigorous conceptual framework based
+on mathematical principles, so to enable: (i) precise and unambiguous definition of SoS properties; (ii) runtime
+verification so to control, avoid, or block negative/harmful unanticipated emergent behaviours, (iii) the development
+of tools for managing the SoS, (iv) industry to develop products and services with guaranteed properties
+while excluding unwanted behaviors. The understanding of the impact of proposed or potential changes will
+enable SoS system engineers to either intervene in order to preclude problems or develop strategies to mitigate
+the impact on the SoS. Moreover, the runtime verification methods will enable the definition of self-adaptation
+methods for the SoS, according to the type of SoS, i.e. Virtual, Collaborative, Acknowledged, or Directed, and
+in general to the extent of ?controllability? of constituents.
+In our discussions with several Swedish companies (between others Volvo Car Group, Volvo Trucks, Ericsson,
+Axis communications, Jeppesen - Boing) all of them claimed that one of the business challenge for industry
+in the near future is to build and provide new functionalities and/or services in a short time scale by easily integrating
+the system with other systems and to continuously maintain and evolve the system under guarantees of
+quality of service.
+
+
+

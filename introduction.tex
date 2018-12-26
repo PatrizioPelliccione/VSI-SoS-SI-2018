@@ -1,0 +1,51 @@
+\section{Introduction} 
+
+A System of Systems (SoS) is a collection of often pre-existing and/or independently owned and managed systems that collectively offer a service that is based on their collaboration~\cite{Fitzgerald2014,SoS}. Prominent examples of SoSs include intelligent transport systems, integrated air defense networks, applications in healthcare and emergency services. The units that compose an SoS are systems themselves and are called constituents. SoSs may be formed and evolve as triggered by changes in their operating environment and/or in the goals of the autonomous constituent systems~\cite{Fitzgerald2014,MeaningOfOf}. The overall SoS evolution might affect the structure and composition of the constituents, functionalities offered, and/or the functionalities quality. Collaboration between SoSs enables new capabilities, but interdependency implies sensitive to the correctness of the information given to other systems, and that failures can cascade throughout the SoS, creating additional system failures or development delays.
+
+%Recently, applications of connected cars have caught the automotive sector's attention worldwide~\cite{7416035}. 
+%In future transportation systems, more and more systems are expected to be connected, creating new applications, where not only connected cars, but also road infrastructures, pedestrians, cyclists, etc. are involved~\cite{7416035}. In these future scenarios, the transportation systems can be seen as a System of Systems (SoS)~\cite{Fitzgerald2014,SoS,MeaningOfOf}.
+%, where each constituent system - one of the units that compose an SoS - can act as a standalone system, but the cooperation among the constituent systems enables new emerging and promising SoS services and solutions. A constituent system can also be part of several different SoS concurrently, each SoS with its own functional purpose, and with different priority and timing constraints depending, e.g., on whether its functionality is intended to handle operational, tactical or strategical tasks.
+
+Future transportation systems will be a heterogeneous mix of items with varying connectivity and interoperability. A mix of new technologies and legacy systems will co-exist and thus realize a variety of scenarios involving not only connected cars but also road infrastructures, pedestrians, cyclists, etc. In other words, future transportation systems can be seen as a System of Systems (SoS)~\cite{Fitzgerald2014,SoS,MeaningOfOf}, where each constituent system - one of the units that compose an SoS - can act as a standalone system, but the cooperation among the constituent systems enables new emerging and promising scenarios. A constituent system can also be part of several different SoS concurrently, each SoS with its own functional purpose, and with different priority and timing constraints depending, e.g., on whether its functional purpose is operational, tactical or strategical.
+
+%Compared to a traditional integrated system, a 
+A constituent system within an SoS has a value in itself, has its own goals, can be independently managed, and can be used outside the SoS context. Constituents might need to sacrifice their ability to operate independently in order to assure the satisfaction of a centrally managed and agreed SoS goal. Moreover, often an SoS is owned and evolved by different organizations and constituents of a SoS are, more often than not, at different points in their life cycles. Collaboration among constituent systems of an SoS enables new capabilities, but interdependency requires (i) unambiguous interpretation of shared data, (ii) agreement on how to use data to achieve the agreed SoS goal, (iii) techniques to avoid the cascading of failures throughout the SoS, etc. %creating additional system failures or development delays. %~\cite{Jakob}.
+
+When considering SoS in the automotive domain two different points of view might be considered: 
+
+\begin{itemize}
+\item The viewpoint of the car as a constituent of the SoS, which aims at giving an answer to the following question: {\em How to engineering a car so to be part of a system of systems?} %\vspace{-.2cm}
+\item The viewpoint of the overall SoS, which aims at giving an answer to the following question: {\em How to engineer the SoS so that the collaboration among the various constituent systems will achieve the SoS goals?}  
+\end{itemize}
+
+This paper focuses on the first viewpoint and makes a bottom-up analysis of technologies that may be needed in future Systems of Systems for cars. A reason for going bottom-up is that we have a lot of legacy that is expected to be part of also future cars. One can expect that most of the development in the up-coming decade  will be mainly iterative, even if disruptive technologies, services and business models may appear in the same timeframe. Given that the majority of the assumptions in this report are relevant we can foresee a number of requirements for the vehicles and the infra-structure meaning both ICT infrastructure and the physical infrastructure such as roads, signs, buildings etc. 
+
+We then also briefly discuss the opportunities and the steps that should be performed in order to address the second viewpoint, i.e. on how to engineer the overall SoS. 
+
+This work is carried out in the context of two Swedish projects, {\em Next-Generation Electrical Architecture (NGEA)} and {\em NGEA step2}. 
+These projects are coordinated by Volvo Cars and involve some universities and research centers in Sweden and many suppliers in the automotive domain, including Autoliv, Arccore, Combitech, Cybercom, Knowit, Prevas, \AA F-Technology, Semcom, and Qamcom. %The projects aim to develop new software processes and proof of concepts to strengthen the competitiveness of the automotive industry in Sweden. 
+The main objectives of the projects are to investigate:
+	\begin{enumerate} %[label=\itshape\roman*\upshape)]
+		\item the transition of Volvo Cars towards continuous integration and deployment;
+		\item new business models and innovative ways of working within the automotive ecosystem; 
+		\item vehicles as part of a System of Systems.
+	\end{enumerate}
+
+
+In this paper we focus on the SoS part and, especially, we describe the main essential building blocks that are necessary to enable future transportation systems, including: 
+
+\begin{itemize}
+\item {\em Distributed end-to-end functionality} - functionality can be distributed, not only between nodes in vehicles, but also between nodes outside the vehicles such as cloud services, other vehicles and infrastructures, etc., 
+\item {\em Functional safety} - functional safety requirements might include functions or data outside the car, 
+\item {\em Connectivity and Interoperability} - sufficiently reliable connectivity is essential to enable the expected service level in different places in the System of Systems. Moreover, constituent systems should be able to effectively and efficiently work together within the SoS, and 
+\item {\em Security and Privacy} - connected cars are exposed to malicious attacks that can have serious consequences. Cars need to share data in order to enable interesting SoS scenarios, however, this might open privacy issues.
+\end{itemize}
+
+This paper is reporting about the knowledge acquired during frequent meetings of the project \patrizio{quantify}, focus groups involving both researchers and industrials from Volvo and suppliers, interviews with selected industrials, and study of the relevant literature.
+
+This paper is an extension of...\patrizio{to complete}~\cite{Pelliccione2017_SoS}.
+
+\noindent {\bf Paper structure:} 
+The paper is structured as follows. Section~\ref{sec:challenges} presents the challenges the automotive domain is facing today. \patrizio{SOTA} Section~\ref{sec:architecture} highlights the importance of the electrical and software architecture to deal with the exciting challenges highlighted in Section~\ref{sec:challenges}. Moreover, this section describes the architecture framework we are building together with Volvo cars. Section~\ref{sec:SoS} focus on the SoS viewpoint and, as mentioned before, on the main building blocks to enable the car to be part of a SoS. 
+\patrizio{Demonstrator}
+Finally, Section~\ref{sec:conclusions} discusses concluding remarks and highlights future research directions.

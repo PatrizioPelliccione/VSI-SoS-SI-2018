@@ -1,14 +1,15 @@
 \section{Engineer an SoS: challenges and opportunities}
 
-Connected vehicles will benefit from Intelligent Transport Systems (ITS), Smart
-Cities, and Internet of Things (IoT). 
-Future transportation systems will be a heterogeneous mix of items with varying connectivity and interoperability. A mix of new technologies and legacy systems will co-exist to realize a variety of scenarios involving not only connected vehicles but also smart roads, pedestrians, cyclists, and so on. In other words, future transportation systems are expected to be system of systems, where each constituent system can act as a standalone system, but where the cooperation among the constituent systems will enable new emerging and promising scenarios. 
+%Connected vehicles will benefit from Intelligent Transport Systems (ITS), Smart Cities, and Internet of Things (IoT). 
+
 
 
 Connected vehicles  will combine data from inside vehicle
 with external data coming from the environment (other vehicles, the road, signs,
-and the cloud). In such a scenario, different applications will be possible: smart
-traffic control, better platooning coordination, and enhanced safety in general.
+and the cloud).
+Future transportation systems will be a heterogeneous mix of items with varying connectivity and interoperability. A mix of new technologies and legacy systems will co-exist to realize a variety of scenarios involving not only connected vehicles but also smart roads, pedestrians, cyclists, and so on. In other words, future transportation systems are expected to be system of systems, where each constituent system can act as a standalone system, but where the cooperation among the constituent systems will enable new emerging and promising scenarios.  
+%smart
+%traffic control, better platooning coordination, and enhanced safety in general.
 In today's vehicles, the driver plays a fundamental role. Besides controlling
 the vehicle, she/he is also expected to recover the vehicle from failures. With fully
 autonomy (SAE level 5), the driver is no longer in the loop. The vehicle, besides
@@ -20,20 +21,48 @@ ecosystem: companies that focus on communication aspects will play a big role in
 this ecosystem, as communication will be an important basis for highly automated
 driving~\cite{Knauss2017challenges}. Communication allows the vehicles to ensure that they have redundant
 information sources (i.e., several sources of information) to ensure safety, reliability,
-and quality of autonomous vehicles. As can be seen in this example, data plays an
-essential role in autonomous vehicles. Hence, companies that focus on data will be
-additional players in the ecosystem~\cite{Knauss2017challenges}. When it comes to OEMs for highly automated
-driving, we notice that companies need to shift to being software companies
-instead of developing software just as a side product, as already mentioned above.
+and quality of autonomous vehicles. In other words, autonomous cars are becoming part of an autonomous system of systems. An autonomous car needs to constantly communicate with other cars and the infrastructure, via sensors and the cloud. As foreseen by IBM, unprecedented complexity will lead to unprecedented cooperation\footnote{ \url{https://www.ibm.com/blogs/internet-of-things/iot-design-for-system-of-systems}}. This is also confirmed by some discussions we had with several Swedish companies (between others Volvo Car Group, Volvo Trucks, Ericsson,
+Axis communications, Jeppesen - Boing); all of them claimed that one of the business challenge for industry
+in the near future is to build and provide new functionalities and/or services in a short time scale by easily integrating
+the system with other systems and to continuously maintain and evolve the system under guarantees of
+quality of service.
+
+
+%As can be seen in this example, data plays an
+%essential role in autonomous vehicles. Hence, companies that focus on data will be
+%additional players in the ecosystem~\cite{Knauss2017challenges}. 
+
+
+
+
+
 
 
 As anticipated in Section~\ref{sec:sota}, SoSE is an emerging discipline of the last years that addresses the development,
-operation and maintenance of SoSs. Even though the community around SoSE is ac trive, SoSE is a
-young discipline, and general principles and theoretical foundations remain to be discovered. The two
-biggest challenges are related to: 
+operation and maintenance of SoSs. Even though the community around SoSE is active, SoSE is a
+young discipline, and general principles and theoretical foundations remain to be discovered. 
+Engineering SoSs requires cooperation among companies, and there is the need of standards. This is testified by the investigation of Toyota about intelligent transport systems\footnote{ \url{www.toyota-global.com/innovation/smart_mobility_society/intelligent_transport_systems}} and by the 
+pn-European project SOCRATES2.0 (System of Coordinated Roadside and Automotive Services for Traffic Efficiency and Safety)\footnote{\url{https://socrates2.org/}}, which aims at setting new standards to share and integrate traffic information to enable effective traffic management and navigation services.
+
+Once defined a collaboration among the players of the system of systems, many questions need to be answered,. e.g.:
 
 \begin{itemize}
-\item Uncertainty about constituents - SoS need to manage unavoidable imprecise
+\item Should the SoS be Virtual, Collaborative, Acknowledged, or Directed, or a mix of them?
+\item What is the extent of ``controllability" of the constituent systems?
+\item Should the collaboration be established for a limited time in response to or to solve specific situations, like hazards in connected safety scenarios?
+\item Should the collaboration be extemporary and spontaneous?
+\item Who is engineering the SoS, one specific OEM, a group of OEMs, road authorities, etc.?
+\item Who is the owner of the SoS?
+\item Who is the manager of the SoS?
+\end{itemize}
+
+Moreover, some of the scenarios that are supported by the SoS might be safety-critical. Consequently, SoS engineering needs to be grounded on a rigorous conceptual framework, so to enable: (i) precise and unambiguous definition of SoS properties; (ii) runtime
+verification so to control, avoid, or block negative/harmful unanticipated emergent behaviours (emergent behaviours will be explained later in this section), and (iii) the development
+of tools for managing the SoS. 
+In order to understand the complexity of the problem, we mention two challenging characteristics of SoSs: 
+
+\begin{itemize}
+\item Uncertainty about constituents - SoSs need to manage unavoidable imprecise
 and uncertain information about constituent systems; 
 \item Independence of constituents - constituent systems
 are independent entities for what concern operation, management, and evolution. 
@@ -72,38 +101,10 @@ to base reliance on emergent properties and on SoS-level behaviours.
 
 
 
-\patrizio{autonomous cars are becoming part of an autonomous system of system. An autonopmous car needs to costantly communicate with other cars and the infrastracture, cia sensors and the cloud. unprecedented complexity will lead to unprecedented cooperation \url{https://www.ibm.com/blogs/internet-of-things/iot-design-for-system-of-systems}. Enginenrign the SoS: coopration bewetween companies, + standards, etc.\\
-Anche: ``An interconnected self-driving car system-of-systems"\\
-Anche: Toyota - Intelligent transport systems: \url{www.toyota-global.com/innovation/smart_mobility_society/intelligent_transport_systems}\\
-Anche the EU project SOCRATES2.0 (System of Coordinated Roadside and Automotive Services for Traffic Efficiency and Safety), partnership of BMW, HERE, and Copenhagen
-}
-
-?	Should the SoS be Virtual, Collaborative, Acknowledged, or Directed, or a mix of them?
-?	Should the collaboration be established for a limited time in response to or to solve specific situations, like hazards in connected safety scenarios?
-?	Should the collaboration be extemporary and spontaneous?
-?	Who is engineering the SoS, one specific OEM, a group of OEMs, road authorities, etc.?
-?	Who is the owner of the SoS?
-?	Who is the manager of the SoS?
 
 
-The
-research significance is many-fold since SoS Engineering is an emerging discipline of the last years and is still in
-his infancy. SoS might be used in several safety-critical application domains, e.g., intelligent transport systems,
-integrated air defense networks, applications in healthcare, emergency response, space exploration, homeland
-security, etc. Consequently, SoS engineering needs to be grounded on a rigorous conceptual framework based
-on mathematical principles, so to enable: (i) precise and unambiguous definition of SoS properties; (ii) runtime
-verification so to control, avoid, or block negative/harmful unanticipated emergent behaviours, (iii) the development
-of tools for managing the SoS, (iv) industry to develop products and services with guaranteed properties
-while excluding unwanted behaviors. The understanding of the impact of proposed or potential changes will
-enable SoS system engineers to either intervene in order to preclude problems or develop strategies to mitigate
-the impact on the SoS. Moreover, the runtime verification methods will enable the definition of self-adaptation
-methods for the SoS, according to the type of SoS, i.e. Virtual, Collaborative, Acknowledged, or Directed, and
-in general to the extent of ?controllability? of constituents.
-In our discussions with several Swedish companies (between others Volvo Car Group, Volvo Trucks, Ericsson,
-Axis communications, Jeppesen - Boing) all of them claimed that one of the business challenge for industry
-in the near future is to build and provide new functionalities and/or services in a short time scale by easily integrating
-the system with other systems and to continuously maintain and evolve the system under guarantees of
-quality of service.
+
+
 
 
 

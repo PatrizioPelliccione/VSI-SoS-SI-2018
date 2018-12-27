@@ -92,46 +92,50 @@ Volvo Cloud: A world where the benefits of anonymized data-sharing support conve
 while helping to contribute to a better society. Volvo Cars is working on realising such a future scenario". 
 
 
-Coming back to the low level scenario proposed in~\cite{JSA2017}, first of all there is the need of having reliable communication. To have the car as a constituent of a System of Systems (SoS), the car needs to be connected to other cars, infrastructure, cloud, and any other kind of constituent system of the SoS. Most probably the car will be connected through heterogeneous communication means and with various degrees of quality of service.
+Coming back to the low level scenario proposed in~\cite{JSA2017}, first of all there is the need of having reliable communication. To have the car as a constituent of a System of Systems (SoS), the car needs to be connected to clouds, other cars, road infrastructure, etc. There will be heterogeneous communication means and with various degrees of quality of service. The QoS of the different communication means should be clearly identified in order to enable the development of end-to-end functionalities that go beyond the boundaries of the car.
 
-\begin{quote}
-{User Story:} 
-\emph{``As an architect I need to engineer the car so that it will support heterogeneous communication means with various quality of service (QoS).The QoS of the different communication means should be clearly identified
-so that it will be possible to develop end-to-end functionalities that go beyond the boundaries of the car.''} % the why
-\end{quote}
+%\begin{quote}
+%{User Story:} 
+%\emph{``As an architect I need to engineer the car so that it will support heterogeneous communication means with various quality of service (QoS).The QoS of the different communication means should be clearly identified
+%so that it will be possible to develop end-to-end functionalities that go beyond the boundaries of the car.''} % the why
+%\end{quote}
 
-Then, there is the need of guaranteeing that communication from and to the car is properly understood. It is not enough to have proper communication means; the exchanged information should be properly understood by all involved parts.
+Then, there is the need of ensuring a high degree of interoperability between the car and other constituent systems of the SoS; in other words, of ensuring that 
+communication from and to the car is properly understood. It is not enough to have proper communication means; the exchanged information should be properly understood by all involved parts. Then, end-to-end functionalities that go beyond the boundaries of the car need to be built under the assumption that exchanged information is properly understood and required actions are taken by the receiving system. This is what is called pragmatic interoperability~\cite{intero}.
 
-\begin{quote}
-{User Story:} 
-\emph{``As an architect I need to ensure a high degree of interoperability between the car and other constituent systems of the SoS. End-to-end functionalities that go beyond the boundaries of the car might need to be built under the assumption that exchanged information is properly understood and required actions are taken by the receiving system.''} % the why
-\end{quote}
+%\begin{quote}
+%{User Story:} 
+%\emph{``As an architect I need to ensure a high degree of interoperability between the car and other constituent systems of the SoS. End-to-end functionalities that go beyond the boundaries of the car might need to be built under the assumption that exchanged information is properly understood and required actions are taken by the receiving system.''} % the why
+%\end{quote}
 
-Third, vehicles should have a degree of autonomy and readiness to be at the service of the SoS. Often SoS scenarios require a degree of autonomy of the vehicle. Moreover, often a constituent system has to temporarily sacrifice its own goal in order to take actions needed to fulfil the goal of the SoS.
-
-\begin{quote}
-{User Story:} 
-\emph{``As an architect I need to manage the transition towards autonomous behaviours of the car that are needed to achieve the goal of the SoS. % the why
+Third, vehicles should have a degree of autonomy and readiness to be at the service of the SoS. 
 The car should be engineered so to, often immediately, temporarily stop what is currently doing and 
-perform the actions required by the SoS. The right tradeoff between independence of the vehicle (from the SoS) and service offered to the SoS needs to be found.''}
-\end{quote}
+perform the actions required by the SoS. The right tradeoff between independence of the vehicle (from the SoS) and service offered to the SoS needs to be found.
+%Often SoS scenarios require a degree of autonomy of the vehicle. Moreover, often a constituent system has to temporarily sacrifice its own goal in order to take actions needed to fulfil the goal of the SoS.
 
-Vehicles should be also ready to deal with uncertainty and functional safety. Vehicles are starting receiving a huge amount of information from the environment as communication coming from other vehicles, pedestrians, road signals, and the city in general. This information might be precious for supporting new safety behaviours~\cite{VCC}. %\footnote{Example: \url{https://goo.gl/mIWWS3}.}.  %\url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/159478/volvo-cars-connected-car-program-delivers-pioneering-vision-of-safety-and-convenience}}. 
-However, this information is often unreliable and subject to different dimensions of uncertainty, like presence of other constituent systems, communication means, etc.
+%\begin{quote}
+%{User Story:} 
+%\emph{``As an architect I need to manage the transition towards autonomous behaviours of the car that are needed to achieve the goal of the SoS. % the why
+%The car should be engineered so to, often immediately, temporarily stop what is currently doing and 
+%perform the actions required by the SoS. The right tradeoff between independence of the vehicle (from the SoS) and service offered to the SoS needs to be found.''}
+%\end{quote}
 
-\begin{quote}
-{User Story:} 
-\emph{``As an architect I would like to support innovative and very promising safety scenarios % the why
-that can involve cyclists, pedestrians, etc. However, this would imply that the way functional safety is ensured should change since the SoS is open (constituent systems might join or leave the SoS at any moment) and we cannot rely 100\% on information sent by uncontrollable and independent constituent systems.''}
-\end{quote}
+Vehicles should be also ready to deal with uncertainty and functional safety. Vehicles are starting receiving a huge amount of information from the environment as communication coming from other vehicles, pedestrians, cyclists, road signals, and the city in general. This information might be precious for supporting new safety behaviours\footnote{Example: \url{https://goo.gl/mIWWS3}.}.  %\url{https://www.media.volvocars.com/global/en-gb/media/pressreleases/159478/volvo-cars-connected-car-program-delivers-pioneering-vision-of-safety-and-convenience}}. 
+However, this information is often unreliable and subject to different dimensions of uncertainty, e.g., constituent systems might join or leave the SoS at any moment, communication means, accuracy and reliability of uncontrollable and independent constituent systems, etc.
+
+%\begin{quote}
+%{User Story:} 
+%\emph{``As an architect I would like to support innovative and very promising safety scenarios % the why
+%that can involve cyclists, pedestrians, etc. However, this would imply that the way functional safety is ensured should change since the SoS is open (constituent systems might join or leave the SoS at any moment) and we cannot rely 100\% on information sent by uncontrollable and independent constituent systems.''}
+%\end{quote}
 
 
-Another important aspect is to deal with cyber security and privacy. Once the car is connected it is exposed to attacks as any other computer or device that is connected to Internet. The effects might be tragic.
+Another important aspect is to deal with cyber-security and privacy. Once the car is connected it is exposed to attacks as any other computer or device that is connected to Internet. The effects might be dangerous or catastrophic\footnote{\url{https://www.wired.com/tag/car-hacking/}}.
 
-\begin{quote}
-{User Story:} 
-\emph{``As an architect I need to protect the car from attacks to avoid dangerous or catastrophic scenarios and to guarantee the privacy of user data.''} % the why
-\end{quote}
+%\begin{quote}
+%{User Story:} 
+%\emph{``As an architect I need to protect the car from attacks to avoid dangerous or catastrophic scenarios and to guarantee the privacy of user data.''} % the why
+%\end{quote}
 
 
 \subsubsection{Dependencies among SoS Constituents}

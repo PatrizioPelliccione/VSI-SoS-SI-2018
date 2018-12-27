@@ -1,4 +1,4 @@
-\section{How to engineer an SoS}
+\section{Engineer an SoS: challenges and opportunities}
 
 Connected vehicles will benefit from Intelligent Transport Systems (ITS), Smart
 Cities, and Internet of Things (IoT). 
@@ -27,41 +27,50 @@ driving, we notice that companies need to shift to being software companies
 instead of developing software just as a side product, as already mentioned above.
 
 
+As anticipated in Section~\ref{sec:sota}, SoSE is an emerging discipline of the last years that addresses the development,
+operation and maintenance of SoSs. Even though the community around SoSE is ac trive, SoSE is a
+young discipline, and general principles and theoretical foundations remain to be discovered. The two
+biggest challenges are related to: 
 
-\patrizio{proj prop 2015} An open problem of SoSs is how to provide justification of the reliance on emergent properties [3]. Emergent
+\begin{itemize}
+\item Uncertainty about constituents - SoS need to manage unavoidable imprecise
+and uncertain information about constituent systems; 
+\item Independence of constituents - constituent systems
+are independent entities for what concern operation, management, and evolution. 
+\end{itemize}
+
+Each constituent has its own
+objectives, possibly conflicting with objectives of the other constituents or of the SoS. An SoS has a potentially
+limited authority that it exercises on the constituent systems to drive them towards its objectives. 
+
+An open problem of SoSs is how to provide justification of the reliance on emergent properties~\cite{Fitzgerald2014}. Emergent
 properties are the result of synergistic collaboration between constituent systems, and are those properties
 that cannot be expressed at the level of a single constituent system, but require observations of phenomena at the
-SoS boundary [3]. There are two different types of emergence: weak emergence [6], when an emergent property
+SoS boundary~\cite{Fitzgerald2014}. There are two different types of emergence: weak emergence [6], when an emergent property
 can be reduced to its constituents, and strong emergence, when an emergent property cannot be traced to any
-direct cause (a classic example is the consciousness emerging as a property of the brain [3]). Like [7, 3] we
+direct cause (a classic example is the consciousness emerging as a property of the brain~\cite{Fitzgerald2014}). Like~\cite{EmergenceAndRefinement,Fitzgerald2014}  we
 confine our attention to weak emergence, and hereafter, we use the term emergence to refer to weak emergence.
 Emergence can be either anticipated, meaning that it is defined at design-time, or unanticipated, meaning
 that it is not purposely or consciously designed-in or surprising to the developers and users of the SoS. Consequences
 of the unanticipated emergent behavior may be viewed as negative/harmful, positive/beneficial, or
-neutral/unimportant by stakeholders of the SoS [5]. Existing approaches to design and verify dependable systems1
+neutral/unimportant by stakeholders of the SoS~\cite{DDUSA2012}. Existing approaches to design and verify dependable systems\footnote{Dependability is a generic concept including attributes like reliability, availability, safety, integrity, maintainability, etc.~\cite{dependability}.} 
 work pretty well with closed and unchanging systems. These techniques become inadequate for assessing
 and justifying SoS reliance on emergent properties since SoSs are composed of autonomous constituents
-whose behaviour can neither be predicted nor controlled [9].
+whose behaviour can neither be predicted nor controlled~\cite{Strigini12}. Investigation is needed to provide ways for characterizing, quantifying and measuring a system
+behavior in the presence of perturbations~\cite{Strigini12}.
 
-System-of-Systems Engineering (SoSE) is an emerging discipline of the last years that addresses the development,
-operation and maintenance of SoSs. SoSE is a specialization of systems engineering and must balance
-SoS needs with individual system needs [5]. The community around SoSE is active2, nevertheless SoSE is a
-young discipline, and general principles and theoretical foundations remain to be discovered. The two
-biggest challenges are related to: (i) Uncertainty about constituents - SoS need to manage unavoidable imprecise
-and uncertain information about constituent systems; (ii) Independence of constituents - constituent systems
-are independent entities for what concern operation, management, and evolution. Each constituent has its own
-objectives, possibly conflicting with objectives of the other constituents or of the SoS. An SoS has a potentially
-limited authority that it exercises on the constituent systems to drive them towards its objectives. In the following
-we overview the three sub-fields related to this project.
-Verification of emergent properties: One of the most frequently used techniques to explore emergence is simulation
-[14]. The work in [15] advocates that different engineering techniques are required at different scales,
-including software engineering and formal methods. Self-adaptive systems [16] are systems that autonomously
+One of the most frequently used techniques to explore emergence is simulation~\cite{DeWolf2005}. The work in~\cite{Zambonelli04} advocates that different engineering techniques are required at different scales,
+including software engineering and formal methods. Self-adaptive systems~\cite{de2013software,Author:2009tt,Salehie2009} are systems that autonomously
 decide how to adapt at runtime to meet environment (context) and user changes and threats. Uncertainty about
 constituents and independence of constituents make most of the techniques proposed for self-adaptive system
 inapplicable for SoSs. Providing guarantees that an SoS will achieve a global goal in predictable and dependable
 ways, through the collaboration of autonomous and independent constituent systems with different (and
-potentially conflicting) local goals remains an open problem [17, 18]. There is the need of evidence on which
+potentially conflicting) local goals remains an open problem~\cite{Delgado2004,Leucker2009293,ZHANG20185}. There is the need of evidence on which
 to base reliance on emergent properties and on SoS-level behaviours.
+
+ 
+
+
 
 \patrizio{autonomous cars are becoming part of an autonomous system of system. An autonopmous car needs to costantly communicate with other cars and the infrastracture, cia sensors and the cloud. unprecedented complexity will lead to unprecedented cooperation \url{https://www.ibm.com/blogs/internet-of-things/iot-design-for-system-of-systems}. Enginenrign the SoS: coopration bewetween companies, + standards, etc.\\
 Anche: ``An interconnected self-driving car system-of-systems"\\

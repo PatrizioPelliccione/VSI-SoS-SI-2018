@@ -23,6 +23,8 @@
   Timestamp                = {2017.06.28}
 }
 
+
+
 @inproceedings{Pelliccione2017_SoS,
  author = {Patrizio Pelliccione and Avenir Kobetski and Tony Larsson and Maytheewat Aramrattan and
 Tobias Aderum and Magnus $\AA$gren and G\"oran Jonsson and Rogardt Heldal and Carl
@@ -58,6 +60,12 @@ keywords={Internet;security of data;Internet-of-things;collaborative computing e
 doi={10.1109/NCETACS.2011.5751382}, 
 ISSN={}, 
 month={March},}
+
+@report{DDUSA2012,
+author = {{Department of Defense, United States of America}},
+title = {Directions in Systems of Systems Engineering - Report from the Work. on Syn. among Proj. and Direct. in Advan. Syst. Eng., \url{http://cordis.europa.eu/fp7/ict/embedded-systemsengineering/home_en.html}},
+date = {July 2012},
+}
 
 @INPROCEEDINGS{Dahmann08, 
 author={J. S. Dahmann and K. J. Baldwin}, 
@@ -212,6 +220,17 @@ pages = {84--93},
 month = sep
 }
 
+@ARTICLE{dependability, 
+author={Avizienis, A. and Laprie, J.-C. and Randell, B. and Landwehr, C.}, 
+journal={Dependable and Secure Computing, IEEE Transactions on}, 
+title={Basic concepts and taxonomy of dependable and secure computing}, 
+year={2004}, 
+month={Jan}, 
+volume={1}, 
+number={1}, 
+pages={11-33}, 
+ISSN={1545-5971},}
+
 @incollection{franklin1996agent,
   title={Is it an Agent, or just a Program?: A Taxonomy for Autonomous Agents},
   author={Franklin, Stan and Graesser, Art},
@@ -228,6 +247,82 @@ year = {2009},
 pages = {1--26},
 month = jun
 }
+
+@article{Delgado2004,
+ author = {Delgado, Nelly and Gates, Ann Quiroz and Roach, Steve},
+ title = {A Taxonomy and Catalog of Runtime Software-Fault Monitoring Tools},
+ journal = {IEEE Trans. Softw. Eng.},
+ issue_date = {December 2004},
+ volume = {30},
+ number = {12},
+ month = dec,
+ year = {2004},
+ issn = {0098-5589},
+ pages = {859--872},
+ numpages = {14},
+ url = {http://dx.doi.org/10.1109/TSE.2004.91},
+ doi = {10.1109/TSE.2004.91},
+ acmid = {1042415},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+ keywords = {Index Terms- Assertion checkers, runtime monitors, specification, specification language, survey, software/program verification.},
+} 
+
+@article{ZHANG20185,
+title = "Automatic generation of predictive monitors from scenario-based specifications",
+journal = "Information and Software Technology",
+volume = "98",
+pages = "5 - 31",
+year = "2018",
+issn = "0950-5849",
+doi = "https://doi.org/10.1016/j.infsof.2018.01.014",
+url = "http://www.sciencedirect.com/science/article/pii/S0950584917301507",
+author = "Pengcheng Zhang and Patrizio Pelliccione and Hareton Leung and Xuandong Li",
+keywords = "Scenario-based specifications, Property sequence charts, Run-time monitor, Predictive monitor",
+abstract = "Context
+Unpredictability and uncertainty about future evolutions of both the system and its environment may easily compromise the behavior of the system. The subsequent software failures can have serious consequences. When dealing with open environments, run-time monitoring is one of the most promising techniques to detect software failures. Several monitoring approaches have been proposed in the last years; however, they suffer from two main limitations. First, they provide limited information to be exploited at run-time for early detecting and managing situations that most probably will lead to failures. Second, they mainly rely on logic-based specifications, whose intrinsic complexity may hamper the use of these monitoring approaches in industrial contexts.
+Objective
+In order to address these two limitations, this paper proposes a novel approach, called PREDIMO (PREDIctive MOnitoring). The approach starts from scenario-based specifications, automatically generates predictive monitors called MAs (Multi-valued Automata), which take into account the actual status and also the possible evolution of both system and environment in the near future, and enables the definition of precise strategies to prevent failures. More specifically, the generated monitors evaluate the specified properties and return one of the seven different values representing the degree of controllability of the system and the distance of the potential incoming failure. The translation from scenario-based specifications to MAs preserves the semantics of the starting specification.
+Method
+We use the design and creation research methodology to design an innovative approach that fills highlighted gaps of state-of-the-art approaches. The validation of the approach is performed through a large experimentation with OSGi (Open Service Gateway Initiative) applications.
+Results
+We present a novel language to specify the properties to be monitored. Then, we present a novel approach to automatically generate predictive monitors from the specified properties.
+Conclusion
+The overall approach is tool supported and a large experimentation demonstrates its feasibility and usability."
+}
+
+@article{Leucker2009293,
+title = "A brief account of runtime verification ",
+journal = "The Jour. of Logic and Algebraic Progr.",
+volume = "78",
+number = "5",
+pages = "293 - 303",
+year = "2009",
+note = "The 1st Workshop on Formal Languages and Analysis of Contract-Oriented Software (FLACOS?07) ",
+issn = "1567-8326",
+author = "Martin Leucker and Christian Schallhart",
+}
+
+@article{Salehie2009,
+ author = {Salehie, Mazeiar and Tahvildari, Ladan},
+ title = {Self-adaptive Software: Landscape and Research Challenges},
+ journal = {ACM Trans. Auton. Adapt. Syst.},
+ issue_date = {May 2009},
+ volume = {4},
+ number = {2},
+ month = may,
+ year = {2009},
+ issn = {1556-4665},
+ pages = {14:1--14:42},
+ articleno = {14},
+ numpages = {42},
+ url = {http://doi.acm.org/10.1145/1516533.1516538},
+ doi = {10.1145/1516533.1516538},
+ acmid = {1516538},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {Adaptation processes, research challenges, self-adaptive software, self-properties, survey},
+} 
 
 @book{de2013software,
   title={Software engineering for self-adaptive systems: A second research roadmap},
@@ -279,6 +374,42 @@ month = jul
   pages={15--24},
   year={2007},
   organization={IEEE}
+}
+@article{Zambonelli04,
+year={2004},
+issn={1387-2532},
+journal={Autonomous Agents and Multi-Agent Systems},
+volume={9},
+number={3},
+doi={10.1023/B:AGNT.0000038028.66672.1e},
+title={Challenges and Research Directions in Agent-Oriented Software Engineering},
+publisher={Kluwer Academic Publishers},
+keywords={multiagent systems; agent-oriented software engineering; intelligence engineering; self-organisation},
+author={Zambonelli, Franco and Omicini, Andrea},
+pages={253-283},
+language={English}
+}
+
+@inproceedings{DeWolf2005,
+ author = {De Wolf, Tom and Holvoet, Tom},
+ title = {Towards a Methodology for Engineering Self-Organising Emergent Systems},
+ booktitle = {Proceedings of the 2005 Conference on Self-Organization and Autonomic Informatics (I)},
+ year = {2005},
+ isbn = {1-58603-577-0},
+ pages = {18--34},
+ numpages = {17},
+ url = {http://dl.acm.org/citation.cfm?id=1563536.1563540},
+ acmid = {1563540},
+ publisher = {IOS Press},
+ keywords = {Emergence, Methodology, Multi-Agent Systems, Self-Organisation, Software Engineering, Unified Process},
+} 
+
+@incollection{Strigini12,
+  author    = {Lorenzo Strigini},
+  title     = {Fault Tolerance and Resilience: Meanings, Measures and Assessment},
+  booktitle = {Resilience Assessment and Evaluation of Computing Systems},
+  pages     = {3--24},
+  year      = {2012},
 }
 
 @inproceedings{softwareAutomotive,
@@ -485,6 +616,22 @@ number={2}
   pages={183--213},
   year={1997},
   publisher={Elsevier}
+}
+
+@article{EmergenceAndRefinement,
+year={2012},
+issn={0934-5043},
+journal={Formal Aspects of Computing},
+volume={24},
+number={1},
+doi={10.1007/s00165-011-0190-7},
+title={Emergence and refinement},
+url={http://dx.doi.org/10.1007/s00165-011-0190-7},
+publisher={Springer-Verlag},
+keywords={Emergence; Refinement; Cellular automata; Game of Life},
+author={Sanders, J.W. and Smith, Graeme},
+pages={45-65},
+language={English}
 }
 
 @book{leveson2011stamp,

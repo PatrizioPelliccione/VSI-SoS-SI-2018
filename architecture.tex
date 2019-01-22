@@ -4,26 +4,42 @@
 
 The increasing complexity of modern cars is asking for architecture descriptions able to provide the instruments to manage the development, which involves various actors of the automotive ecosystem. Proper architecture descriptions permit engineers to compare and relate different products across different vehicle programs, development units, and organizations. 
 
-In the automotive domain, a well-defined architecture facilitates and enables agility, increase flexibility and innovation, while reducing development time and risks. However, as testified by some studies~\cite{Models2016,WICSA2015,JSA2017},
+In the automotive domain, a well-defined architecture facilitates and enables agility, increases flexibility and innovation, while reducing development time and risks. However, as testified by some studies~\cite{Models2016,WICSA2015,JSA2017},
 often in practice there is a discrepancy between the {\em as-intended architecture} - the architecture that captures the design decisions made
 prior to the system's construction - and the {\em as-implemented 
 architecture} - the architecture that describes how
-the system has been built. This causes what is called architecture degradation. The consequence is that the architecture description partially loses its benefits and, also, reuse among different programs in the product line can be also compromised. 
+the system has been built. This causes what is called architecture degradation. The consequence is that the architecture description partially loses its benefits and reuse among different programs in the product line can be also compromised. 
+
+The work in~\cite{ICSA2019Survey} analyses the problem of assuring the conformance between multiple architecture descriptions and between architecture descriptions and code. This paper reports about two surveys with 93 and 72 participants
+to examine architectural inconsistencies. 
+The work suggests guidelines to limit the upfront architecture to stable decisions, while paying attention to concerns that matter across team borders.
+The work in~\cite{ICSA2019Interfaces} focuses on understanding what
+parts of the architecture can be managed in an agile and flexible way and for which parts more controlled mechanisms are beneficial. In particular, the paper focuses on architectural interfaces in the automotive domain, since interfaces are key
+entities in determining and regulating the exchange
+of information between components, subsystems, and
+systems; in some sense they contribute in establishing boundaries (i.e. interfaces can be considered boundary objects~\cite{WohlrabPKL18}) between parts of the software system thus enabling agile teams to develop software or systems while maintaining a sufficient
+degree of autonomy. 
 
 %\subsection{Importance of having an architecture description}
 
 %\subsection{Architecture framework of Volvo Cars}
 
 %\patrizio{use as base the journal paper (we are now managing the minor revision)}
+The paper in~\cite{BEHERE2016136} presents a functional reference architecture for autonomous driving, i.e. the architecture focuses exclusively on autonomous driving and specifically on the functional architecture, without considering the logical and technical architecture~\cite{AAF}. When there is the need of representing multiple aspects, then there is the need of more structured approach. 
+An architecture framework and its multiple viewpoints~\cite{42010,JSA2017,AAF}, is the right instrument to manage the increasing complexity of modern vehicles. %In fact, it permits ensuring that descriptions of vehicle architectures can be compared and related across different vehicle programs, development units, and organizations, thus increasing flexibility and innovation, while reducing development time and risks. 
+In fact, in the context of this paper, an architecture framework establishes a common practice for creating, interpreting, analyzing and using architecture descriptions within the automotive domain and community of stakeholders, developing architecture modelling tools and architecting methods, and establishing processes to facilitate communication, commitments and interoperation across multiple organizations. This is even more important when considering the SoS perspective. 
 
-We are currently building an architecture framework for Volvo Cars able to cope with the complexity and needs of present and future vehicles~\cite{JSA2017}. \patrizio{Change. Say that we made a preliminary study, then volvo cars cretaed an internal project, VIAF for creating the architecture framework.} The framework is based on the conceptual foundations provided by the ISO/IEC/IEEE 42010:2011
-standard~\cite{42010} and currently focuses on three new viewpoints that need to be taken
-into account for future architectural decisions: Continuous Integration and Deployment,
-Ecosystem and Transparency, and the car as a constituent of a System of Systems.\patrizio{check what can we say about the focus}
 According to the standard, an architecture framework is a prefabricated knowledge structure, identified by architecture viewpoints, used to organize an architecture
 description into architecture views~\cite{42010}. An architecture viewpoint encapsulates notations, conventions, methods, and techniques to be used according to specific model kinds that frame particular concerns and that are conceived for specific system
-stakeholders. \patrizio{might we say that it is build on top of Systemweaver?}
+stakeholders. 
 
-We believe that an architecture framework and its multiple viewpoints, is the right instrument to manage the increasing complexity of modern vehicles. In fact, it permits ensuring that descriptions of vehicle architectures can be compared and related across different vehicle programs, development units, and organizations, thus increasing flexibility and innovation, while reducing development time and risks. 
 
-In this paper we will focus on the viewpoint that provide the description of cars as a constituent of a System of Systems.
+The work in~\cite{JSA2017} describes an initial work towards the establishment of an architecture framework for Volvo Cars to cope with the complexity and needs of present and future vehicles~\cite{JSA2017}. The framework is based on the conceptual foundations provided by the ISO/IEC/IEEE 42010:2011
+standard~\cite{42010} and focuses on three new viewpoints that need to be taken into account for future architectural decisions: Continuous Integration and Deployment, Ecosystem and Transparency, and the car as a constituent of a System of Systems.
+Based on this experience, nowadays, Volvo cars is developing its own architecture framework. 
+%\patrizio{might we say that it is build on top of Systemweaver?}
+%\rogardt{We were not permit to use any tool name last time we wrote something about tools}
+
+
+
+In the context of the architecture framework, in this paper we focus on the viewpoint that provides the description of cars as a constituent of a System of Systems.
